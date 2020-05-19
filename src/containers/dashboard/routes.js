@@ -6,8 +6,8 @@ const Artist = lazy(() => import('views/artists'))
 export default [
 	{
 		component: Home,
-		exact: true,
-		path: '/home'
+		path: '/home',
+		exact: true
 	},
 	{
 		component: Albums,

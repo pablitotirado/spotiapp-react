@@ -1,16 +1,8 @@
-import React, { Suspense } from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
-import routes from './routes'
+import React from 'react'
+import { Route } from 'react-router-dom'
+import AppContainer from './containers/dashboard'
+import AppLogin from './containers/login'
 
-const App = () => {
-	return (
-		<BrowserRouter>
-			<Suspense fallback={<div style={{ color: 'white' }}>cargando...</div>}>
-				{routes.map((route, i) => (
-					<Route {...route} key={i} />
-				))}
-			</Suspense>
-		</BrowserRouter>
-	)
-}
-export default App
+export default () => (
+	<Route render={() => (localStorage.getItem('access_token') ? <AppContainer /> : <AppLogin />)} />
+)

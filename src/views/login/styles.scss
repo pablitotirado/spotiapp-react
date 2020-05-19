@@ -1,0 +1,32 @@
+.container-login {
+	border: 1px solid #0a0a0a;
+	border-radius: 9px;
+	position: absolute;
+	top: 30%;
+	left: 33%;
+	padding: 4rem;
+	background-color: #0a0a0a;
+
+	&__title {
+		color: white;
+		background-color: #0a0a0a;
+		font-weight: 600;
+		letter-spacing: 2px;
+	}
+
+	&__button {
+		color: white;
+		padding: 0.5rem 3rem;
+		border: none;
+		border: 1px solid #1db954;
+		border-radius: 5px;
+		background-color: #1db954;
+		display: block;
+		margin: 0 auto;
+
+		&:hover {
+			background-color: #5aba54;
+			border-color: #5aba54;
+		}
+	}
+}
