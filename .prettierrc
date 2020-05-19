@@ -1,0 +1,13 @@
+{
+	"tabWidth": 2,
+	"useTabs": true,
+	"singleQuote": true,
+	"jsxSingleQuote": true,
+	"trailingComma": "none",
+	"semi": false,
+	"bracketSpacing": true,
+	"arrowParens": "avoid",
+	"printWidth": 100,
+	"quoteProps": "preserve",
+	"vueIndentScriptAndStyle": true
+}

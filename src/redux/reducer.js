@@ -1,6 +1,6 @@
 export default function Reducer(state = [], action) {
-  switch (action.type) {
-    default:
-      return state;
-  }
+	switch (action.type) {
+		default:
+			return state
+	}
 }

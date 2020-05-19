@@ -1,23 +1,17 @@
-import { lazy } from "react";
+import { lazy } from 'react'
 
-const Home = lazy(() => import("./views/home"));
-const Albums = lazy(() => import("./views/albums"));
-const Artist = lazy(() => import("./views/artists"));
+const DashboardContainer = lazy(() => import('containers/dashboard'))
+const Login = lazy(() => import('views/login'))
 
 export default [
-  {
-    component: Home,
-    path: "/home",
-    exact: true,
-  },
-  {
-    component: Albums,
-    path: "/albums",
-    exact: true,
-  },
-  {
-    component: Artist,
-    path: "/artists",
-    exact: true,
-  },
-];
+	{
+		component: DashboardContainer,
+		path: '/home',
+		exact: true
+	},
+	{
+		component: Login,
+		path: '/',
+		exact: true
+	}
+]
