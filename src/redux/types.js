@@ -1,3 +1,3 @@
 export const FETCH_TOKEN = 'FETCH_TOKEN'
 export const REFRESH_TOKEN = 'REFRESH_TOKEN'
-export const CLEAN_STORAGE = 'CLEAN_STORAGE'
+export const CLEAR_STORAGE = 'CLEAR_STORAGE'

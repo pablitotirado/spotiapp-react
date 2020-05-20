@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { Route } from 'react-router-dom'
-import AppContainer from './containers/dashboard'
-import AppLogin from './containers/login'
+
+const AppContainer = lazy(() => import('./containers/dashboard'))
+const AppLogin = lazy(() => import('./containers/login'))
 
 export default () => (
-	<Route render={() => (localStorage.getItem('access_token') ? <AppContainer /> : <AppLogin />)} />
+	<Suspense fallback={<div style={{ color: 'white' }}>cargando...</div>}>
+		<Route
+			render={() => (localStorage.getItem('access_token') ? <AppContainer /> : <AppLogin />)}
+		/>
+	</Suspense>
 )

@@ -1,41 +1,58 @@
 .nav {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
 
-  &__left {
-    flex-basis: 15%;
-    background-color: #0a0a0a;
-  }
+	&__left {
+		flex-basis: 15%;
+		background-color: #0a0a0a;
+	}
 
-  &__link {
-    display: block;
-    padding: 0.2rem 1rem;
-    margin: 1rem 0 0 0.5rem;
-    text-align: start;
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-  }
+	&__link {
+		display: block;
+		padding: 0.2rem 1rem;
+		margin: 1rem 0 0 0.5rem;
+		text-align: start;
+		text-decoration: none;
+		color: white;
+		font-weight: 600;
+	}
 
-  &__link-active {
-    position: relative;
-    border-left: 5px solid #5aba54;
-  }
+	&__link-active {
+		position: relative;
+		border-left: 5px solid #5aba54;
+	}
 
-  &__center {
-    flex-basis: 70%;
-    padding: 1rem;
-  }
+	&__center {
+		flex-basis: 70%;
+		padding: 1rem;
+	}
 
-  &__right {
-    flex-basis: 15%;
-    background-color: #0a0a0a;
-  }
+	&__right {
+		flex-basis: 15%;
+		background-color: #0a0a0a;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		&-logout {
+			border: none;
+			border-radius: 5px;
+			border: 1px solid #1db954;
+			background-color: #1db954;
+			margin-top: 1rem;
+			padding: 0.5rem 2rem;
+			color: white;
+
+			&:hover {
+				background-color: #5aba54;
+				border-color: #5aba54;
+			}
+		}
+	}
 }
 
 .icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-right: 0.5rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	margin-right: 0.5rem;
 }
