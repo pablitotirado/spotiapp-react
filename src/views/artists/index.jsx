@@ -1,11 +1,13 @@
-import React from "react";
+import React from 'react'
 
 const Artist = () => {
-  return (
-    <>
-      <h1 style={{ color: "white" }}>Artist</h1>
-    </>
-  );
-};
+	return (
+		<>
+			<div className='artist-container animated'>
+				<h1 style={{ color: 'white' }}>Artist</h1>
+			</div>
+		</>
+	)
+}
 
-export default Artist;
+export default Artist

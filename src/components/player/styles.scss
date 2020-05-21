@@ -1,0 +1,31 @@
+.rhap_container {
+	position: fixed;
+	bottom: 0;
+	height: 5.5rem;
+	padding: 1rem;
+	background-color: #282828 !important;
+	border-top: 1px solid black;
+}
+
+.rhap_main {
+	display: flex;
+}
+
+.rhap_main-controls {
+	svg {
+		color: gray;
+		border-radius: 50%;
+	}
+}
+
+.rhap_controls-section {
+	order: -1;
+}
+
+.rhap_progress-section {
+	//Container progress
+}
+
+.rhap_progress-bar-show-download {
+	//Color progress
+}

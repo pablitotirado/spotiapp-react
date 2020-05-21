@@ -3,7 +3,9 @@ import React from 'react'
 const Home = () => {
 	return (
 		<>
-			<h1 style={{ color: 'white' }}>Hola home</h1>
+			<div className='home-container animated'>
+				<h1 style={{ color: 'white' }}>Hola home</h1>
+			</div>
 		</>
 	)
 }

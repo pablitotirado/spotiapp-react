@@ -1,11 +1,14 @@
-import React from "react";
+import React from 'react'
+import './styles.scss';
 
 const Albums = () => {
-  return (
-    <>
-      <h1 style={{ color: "white" }}>Albums</h1>
-    </>
-  );
-};
+	return (
+		<>
+			<div className='animated'>
+				<h1 style={{ color: 'white' }}>Albums</h1>
+			</div>
+		</>
+	)
+}
 
-export default Albums;
+export default Albums

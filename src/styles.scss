@@ -1,10 +1,22 @@
 html {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
-  font-family: "Roboto", sans-serif;
-  background-color: #000000;
+	box-sizing: inherit;
+	font-family: 'Roboto', sans-serif;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.animated {
+	animation: both fadeIn 1s ease-out;
 }

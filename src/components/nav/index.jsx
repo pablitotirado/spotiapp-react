@@ -1,30 +1,26 @@
-import React, { useLayoutEffect } from 'react'
-import { NavLink, useHistory } from 'react-router-dom'
-import Home from 'assets/icons/icon.svg'
-import Book from 'assets/icons/libro.svg'
-import Ratio from 'assets/icons/radio.svg'
-import Logo from '../logo'
-import './styles.scss'
+import React from 'react'
+import { NavLink, Redirect } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { ClearStorageAction } from '../../redux/actions'
+import { ClearStorageAction } from 'actions/actions-auth'
+
+import './styles.scss'
 
 const Nav = ({ children }) => {
-	const token = useSelector(state => state.reducerLogin.token)
+	const token = useSelector(state => state.reducerAuth.token)
 	const dispatch = useDispatch()
-	const history = useHistory()
 
 	const logout = () => dispatch(ClearStorageAction())
-
-	useLayoutEffect(() => {
-		!token && history.push('/login')
-	}, [token, history])
 
 	return (
 		<>
 			<div className='nav'>
 				<div className='nav__left'>
-					<NavLink tabIndex={1} activeClassName='nav__link-active' className='nav__link' to='/home'>
-						<Logo src={Home} />
+					<NavLink
+						tabIndex={1}
+						activeClassName='nav__link-active'
+						className='nav__link'
+						to='/home'
+					>
 						Home
 					</NavLink>
 					<NavLink
@@ -33,7 +29,6 @@ const Nav = ({ children }) => {
 						className='nav__link'
 						to='/albums'
 					>
-						<Logo src={Book} />
 						Albumes
 					</NavLink>
 					<NavLink
@@ -42,19 +37,17 @@ const Nav = ({ children }) => {
 						className='nav__link'
 						to='/artists'
 					>
-						<Logo src={Ratio} />
 						Artista
 					</NavLink>
 				</div>
 				<div tabIndex={4} className='nav__center'>
-					{children}
-				</div>
-				<div className='nav__right'>
+					<div className='children'>{children}</div>
 					<button tabIndex={5} className='nav__right-logout' onClick={logout}>
 						Salir
 					</button>
 				</div>
 			</div>
+			{!token && <Redirect to='/login' />}
 		</>
 	)
 }

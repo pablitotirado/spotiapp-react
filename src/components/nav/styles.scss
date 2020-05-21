@@ -4,33 +4,37 @@
 	display: flex;
 
 	&__left {
-		flex-basis: 15%;
-		background-color: #0a0a0a;
+		flex-basis: 17%;
+		background-color: #040404;
+		padding: 1rem 0.6rem;
 	}
 
 	&__link {
-		display: block;
-		padding: 0.2rem 1rem;
-		margin: 1rem 0 0 0.5rem;
-		text-align: start;
+		display: flex;
+		align-items: center;
+		border-radius: 5px;
+		padding: 0.7rem 1rem;
 		text-decoration: none;
 		color: white;
 		font-weight: 600;
+
+		&:focus {
+			outline: none;
+		}
 	}
 
 	&__link-active {
-		position: relative;
-		border-left: 5px solid #5aba54;
+		background-color: #282828;
 	}
 
 	&__center {
-		flex-basis: 70%;
+		flex-basis: 85%;
 		padding: 1rem;
+		background-color: #121212;
 	}
 
 	&__right {
-		flex-basis: 15%;
-		background-color: #0a0a0a;
+		background-color: #121212;
 		display: flex;
 		justify-content: center;
 		align-items: flex-start;

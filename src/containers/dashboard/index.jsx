@@ -1,16 +1,18 @@
 import React, { Suspense } from 'react'
-import { Route, Redirect } from 'react-router-dom'
-import routes from './routes'
+import { Route } from 'react-router-dom'
+import appRoutes from './routes'
 import Nav from 'components/nav'
+import Loading from 'components/loading'
+import Player from 'components/player'
 
 const AppContainer = () => (
-	<Suspense fallback={<div>cargando...</div>}>
+	<Suspense fallback={<Loading loading />}>
 		<Nav>
-			{routes.map((route, i) => (
+			{appRoutes.map((route, i) => (
 				<Route key={i} {...route} />
 			))}
 		</Nav>
-		<Redirect to='/home' />
+		<Player />
 	</Suspense>
 )
 
