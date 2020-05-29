@@ -6,14 +6,16 @@ import Loading from 'components/loading'
 import Player from 'components/player'
 
 const AppContainer = () => (
-	<Suspense fallback={<Loading loading />}>
+	<>
 		<Nav>
-			{appRoutes.map((route, i) => (
-				<Route key={i} {...route} />
-			))}
+			<Suspense fallback={<Loading loading />}>
+				{appRoutes.map((route, i) => (
+					<Route key={i} {...route} />
+				))}
+			</Suspense>
 		</Nav>
 		<Player />
-	</Suspense>
+	</>
 )
 
 export default AppContainer

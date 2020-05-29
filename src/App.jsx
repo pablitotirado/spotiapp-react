@@ -3,8 +3,8 @@ import { Route, Redirect } from 'react-router-dom'
 import Loading from 'components/loading'
 import { useSelector } from 'react-redux'
 
-const AppContainer = lazy(() => import('./containers/dashboard'))
-const AppLogin = lazy(() => import('./containers/login'))
+const AppContainer = lazy(() => import('./containers/app'))
+const AppLogin = lazy(() => import('./containers/auth'))
 
 export default () => {
 	const token = useSelector(state => state.reducerAuth.token)
@@ -12,11 +12,9 @@ export default () => {
 	return (
 		<Suspense fallback={<Loading loading />}>
 			<Route
-				render={props =>
-					token ? <AppContainer {...props} /> : <AppLogin {...props} />
-				}
+				render={props => (token ? <AppContainer {...props} /> : <AppLogin {...props} />)}
 			/>
-			{token ? <Redirect to='/home' /> : <Redirect to='/login' />}
+			{token ? <Redirect to='/albums' /> : <Redirect to='/login' />}
 		</Suspense>
 	)
 }

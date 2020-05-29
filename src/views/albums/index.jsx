@@ -1,12 +1,12 @@
-import React from 'react'
-import './styles.scss';
+import React from 'react';
+import Genres from 'components/genres'
 
 const Albums = () => {
+
 	return (
 		<>
-			<div className='animated'>
-				<h1 style={{ color: 'white' }}>Albums</h1>
-			</div>
+			<h1 style={{ color: 'white' }}>Albumes</h1>
+			<Genres />
 		</>
 	)
 }

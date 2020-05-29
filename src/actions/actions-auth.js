@@ -3,10 +3,10 @@ import {
 	FETCH_TOKEN_SUCCESS,
 	FETCH_TOKEN_ERROR,
 	CLEAR_STORAGE
-} from 'types/types-auth'
-import { HttpMethods } from 'api/client-http'
+} from 'types/types-auth.js'
+import Http from 'api/client-http'
 
-const request = new HttpMethods()
+const requestToken = new Http()
 
 const FetchTokenSuccess = response => {
 	const { access_token, token_type } = response
@@ -33,7 +33,7 @@ export const FetchTokenAction = () => {
 			}
 		})
 		try {
-			const response = await request.fetchToken()
+			const response = await requestToken.fetchToken()
 			dispatch(FetchTokenSuccess(response))
 		} catch (error) {
 			dispatch({

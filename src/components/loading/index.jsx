@@ -1,5 +1,6 @@
 import React from 'react'
 import { ScaleLoader } from 'react-spinners'
+import PropTypes from 'prop-types'
 
 const cssStyles = `
 		display: flex;
@@ -22,4 +23,10 @@ const Loading = ({
 	return <ScaleLoader css={css} size={size} color={color} loading={loading} />
 }
 
+Loading.propTypes = {
+	size: PropTypes.number,
+	css: PropTypes.string,
+	color: PropTypes.string,
+	loading: PropTypes.bool
+}
 export default Loading

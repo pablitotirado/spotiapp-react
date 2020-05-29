@@ -17,10 +17,6 @@
 		text-decoration: none;
 		color: white;
 		font-weight: 600;
-
-		&:focus {
-			outline: none;
-		}
 	}
 
 	.logo {
@@ -32,15 +28,11 @@
 
 	&__center {
 		flex-basis: 85%;
-		padding: 1rem;
+		padding: 1rem 1rem 5.5rem 1rem;
 		background-color: #121212;
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-start;
-
-		&:focus {
-			outline: none;
-		}
 	}
 }
 
@@ -80,4 +72,8 @@
 		margin-left: 0.3rem;
 		margin-right: 1rem;
 	}
+}
+
+.children {
+	width: 100%;
 }

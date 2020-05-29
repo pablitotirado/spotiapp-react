@@ -4,9 +4,13 @@ import thunk from 'redux-thunk'
 
 //Reducers
 import reducerAuth from 'reducers/reducer-auth'
+import reducerBrowser from 'reducers/reducer-browser'
+import reducerGenres from 'reducers/reducer-genre-seeds'
 
 const reducer = combineReducers({
-	reducerAuth
+	reducerAuth,
+	reducerBrowser,
+	reducerGenres
 })
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))

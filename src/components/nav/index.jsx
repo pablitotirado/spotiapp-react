@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ClearStorageAction } from 'actions/actions-auth'
 import Logo from 'components/logo'
 import Spotify from 'assets/img/logotipo.svg'
-
+import PropTypes from 'prop-types'
 import './styles.scss'
 
 const Nav = ({ children }) => {
@@ -19,28 +19,28 @@ const Nav = ({ children }) => {
 				<div className='nav__left'>
 					<div className='title-container'>
 						<Logo src={Spotify} className='title-container__logo' />
-						<h1 className='title-container__title'>Spotify</h1>
+						<h1 className='title-container__title'>SpotifyClon</h1>
 					</div>
 					<NavLink
 						tabIndex={1}
-						activeClassName='nav__link-active'
 						className='nav__link'
+						activeClassName='nav__link-active'
 						to='/home'
 					>
 						Home
 					</NavLink>
 					<NavLink
 						tabIndex={2}
-						activeClassName='nav__link-active'
 						className='nav__link'
+						activeClassName='nav__link-active'
 						to='/albums'
 					>
 						Albumes
 					</NavLink>
 					<NavLink
 						tabIndex={3}
-						activeClassName='nav__link-active'
 						className='nav__link'
+						activeClassName='nav__link-active'
 						to='/artists'
 					>
 						Artista
@@ -58,6 +58,10 @@ const Nav = ({ children }) => {
 			{!token && <Redirect to='/login' />}
 		</>
 	)
+}
+
+Nav.propTypes = {
+	children: PropTypes.node
 }
 
 export default Nav
