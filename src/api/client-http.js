@@ -49,4 +49,16 @@ export default class Http {
 
 		return response
 	}
+
+	async getSearch(search) {
+		const requestOptions = {
+			headers: this.headersGet
+		}
+		const request = await fetch(
+			`https://api.spotify.com/v1/search?q=${search}&type=artist`,
+			requestOptions
+		)
+		const response = await request.json()
+		return response
+	}
 }
