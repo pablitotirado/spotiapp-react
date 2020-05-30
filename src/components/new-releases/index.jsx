@@ -11,7 +11,7 @@ const NewReleases = () => {
 	useLayoutEffect(() => {
 		const loadingAlbums = () => dispatch(FetchAlbumsActions())
 		loadingAlbums()
-	}, [])
+	}, [dispatch])
 
 	return (
 		<>

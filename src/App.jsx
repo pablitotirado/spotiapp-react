@@ -1,5 +1,5 @@
-import React, { lazy, Suspense, useEffect } from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import React, { lazy, Suspense } from 'react'
+import { Route } from 'react-router-dom'
 import Loading from 'components/loading'
 import { useSelector } from 'react-redux'
 
@@ -14,7 +14,6 @@ export default () => {
 			<Route
 				render={props => (token ? <AppContainer {...props} /> : <AppLogin {...props} />)}
 			/>
-			{/* {token ? <Redirect to='/home' /> : <Redirect to='/login' />} */}
 		</Suspense>
 	)
 }

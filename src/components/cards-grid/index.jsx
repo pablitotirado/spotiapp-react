@@ -32,14 +32,7 @@ const CardsGrid = ({ albums, loading }) => {
 		</>
 	)
 }
-const initialState = [
-	{
-		id: '',
-		images: [{ url: 'htmslasd' }, { url: 'htmslasd' }],
-		name: '',
-		type: ''
-	}
-]
+
 CardsGrid.propTypes = {
 	albums: PropTypes.array,
 	loading: PropTypes.bool
