@@ -34,6 +34,45 @@
 		justify-content: space-between;
 		align-items: flex-start;
 	}
+
+	&__right {
+		padding: 3rem 1rem 3rem 0;
+		background-color: #121212;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+
+		&-user {
+			&__img {
+				width: 5rem;
+				border-radius: 50%;
+				margin: 0 auto;
+			}
+
+			&__name {
+				font-size: 1rem;
+				color: white;
+				text-align: center;
+			}
+
+			&__logout {
+				border: none;
+				border-radius: 20px;
+				border: 1px solid #1db954;
+				background-color: #1db954;
+				margin-top: 1rem;
+				padding: 0.5rem 2rem;
+				color: white;
+
+				&:hover {
+					background-color: #5aba54;
+					border-color: #5aba54;
+					outline: none;
+				}
+			}
+		}
+	}
 }
 
 .icon {
@@ -43,6 +82,18 @@
 }
 
 .user {
+	&__img {
+		width: 5rem;
+		border-radius: 50%;
+		margin: 0 auto;
+	}
+
+	&__name {
+		font-size: 1rem;
+		color: white;
+		text-align: center;
+	}
+
 	&__logout {
 		border: none;
 		border-radius: 20px;

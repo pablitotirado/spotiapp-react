@@ -44,8 +44,5 @@ CardsGrid.propTypes = {
 	albums: PropTypes.array,
 	loading: PropTypes.bool
 }
-CardsGrid.defaultProps = {
-	albums: initialState,
-	loading: false
-}
+
 export default CardsGrid

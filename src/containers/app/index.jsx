@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import appRoutes from './routes'
 import Nav from 'components/nav'
 import Loading from 'components/loading'
@@ -12,6 +12,7 @@ const AppContainer = () => (
 				{appRoutes.map((route, i) => (
 					<Route key={i} {...route} />
 				))}
+				<Redirect to='/home' />
 			</Suspense>
 		</Nav>
 		<Player />

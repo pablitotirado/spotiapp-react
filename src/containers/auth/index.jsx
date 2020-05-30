@@ -1,13 +1,14 @@
 import React, { Suspense } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import authRoutes from './routes'
 import Loading from 'components/loading'
 
-const AuthContainer = () => (
+const AuthContainer = ({ history }) => (
 	<Suspense fallback={<Loading loading />}>
 		{authRoutes.map((route, i) => (
 			<Route key={i} {...route} />
 		))}
+		{!history.location.hash && <Redirect to='/login' />}
 	</Suspense>
 )
 

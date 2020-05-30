@@ -1,17 +1,8 @@
-import {
-	FETCH_TOKEN_INIT,
-	FETCH_TOKEN_SUCCESS,
-	FETCH_TOKEN_ERROR,
-	CLEAR_STORAGE
-} from 'types/types-auth.js'
-import Http from 'api/client-http'
+import { FETCH_TOKEN_SUCCESS, CLEAR_STORAGE } from 'types/types-auth.js'
 
-const requestToken = new Http()
-
-const FetchTokenSuccess = response => {
-	const { access_token, token_type } = response
-	localStorage.setItem('access_token', access_token)
-	localStorage.setItem('token_type', token_type)
+const FetchTokenSuccess = token => {
+	localStorage.setItem('access_token', token)
+	localStorage.setItem('token_type', 'Bearer')
 	return {
 		type: FETCH_TOKEN_SUCCESS,
 		payload: {
@@ -22,30 +13,9 @@ const FetchTokenSuccess = response => {
 	}
 }
 
-export const FetchTokenAction = () => {
-	return async dispatch => {
-		dispatch({
-			type: FETCH_TOKEN_INIT,
-			payload: {
-				loading: true,
-				error: false,
-				token: false
-			}
-		})
-		try {
-			const response = await requestToken.fetchToken()
-			dispatch(FetchTokenSuccess(response))
-		} catch (error) {
-			dispatch({
-				type: FETCH_TOKEN_ERROR,
-				payload: {
-					loading: false,
-					error: true,
-					token: false,
-					messageError: JSON.stringify(error.message)
-				}
-			})
-		}
+export const FetchTokenAction = token => {
+	return dispatch => {
+		dispatch(FetchTokenSuccess(token))
 	}
 }
 

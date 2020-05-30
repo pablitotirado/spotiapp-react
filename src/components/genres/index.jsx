@@ -11,8 +11,6 @@ const Genres = () => {
 		const load = () => dispatch(FetchGenres())
 		load()
 	}, [])
-
-	console.log(state)
 	return (
 		<>
 			<h1>Hola mundo</h1>
