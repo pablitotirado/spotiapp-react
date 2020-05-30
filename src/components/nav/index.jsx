@@ -24,6 +24,8 @@ const Nav = ({ children }) => {
 	}, [dispatch])
 
 	const validationImages = user.images !== undefined && user.images.length > 0
+
+	console.log(user)
 	return (
 		<>
 			<div className='nav'>
@@ -67,6 +69,9 @@ const Nav = ({ children }) => {
 						alt={user.display_name}
 					/>
 					<p className='nav__right-user__name'>{user.display_name}</p>
+					<p className='nav__right-user__product'>
+						{user.product ? user.product : 'Free'}
+					</p>
 					<button tabIndex={5} className='nav__right-user__logout' onClick={logout}>
 						Salir
 					</button>

@@ -56,6 +56,12 @@
 				text-align: center;
 			}
 
+			&__product {
+				text-transform: capitalize;
+				margin: -0.5rem 0 0 0;
+				color: #1db954;
+			}
+
 			&__logout {
 				border: none;
 				border-radius: 20px;
