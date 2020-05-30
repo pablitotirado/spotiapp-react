@@ -25,7 +25,6 @@ const Nav = ({ children }) => {
 
 	const validationImages = user.images !== undefined && user.images.length > 0
 
-	console.log(user)
 	return (
 		<>
 			<div className='nav'>

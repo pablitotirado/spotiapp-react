@@ -27,7 +27,7 @@ const Login = ({ history }) => {
 
 					<a
 						className='container-login__outside'
-						href='https://accounts.spotify.com/authorize?client_id=366e20586971408a82848c8ac6d8f2a3&redirect_uri=http://localhost:3000/login&response_type=token'
+						href='https://accounts.spotify.com/authorize?client_id=366e20586971408a82848c8ac6d8f2a3&redirect_uri=http://localhost:3000/login&scope=user-read-private%20user-read-recently-played&response_type=token'
 					>
 						Autenticar con Spotify
 					</a>

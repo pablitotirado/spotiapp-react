@@ -7,12 +7,14 @@ import reducerAuth from 'reducers/reducer-auth'
 import reducerBrowser from 'reducers/reducer-browser'
 import reducerGenres from 'reducers/reducer-genre-seeds'
 import reducerUser from 'reducers/reducer-user'
+import reducerRecently from 'reducers/reducer-recentlyplayed'
 
 const reducer = combineReducers({
 	reducerAuth,
 	reducerBrowser,
 	reducerGenres,
-	reducerUser
+	reducerUser,
+	reducerRecently
 })
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))

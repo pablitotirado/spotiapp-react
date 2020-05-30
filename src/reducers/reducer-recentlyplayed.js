@@ -5,7 +5,7 @@ import {
 } from 'types/types-recentlyplayed'
 
 const initialState = {
-	albums: [],
+	recently: [],
 	loading: false,
 	error: false,
 	errorMessage: ''
@@ -13,6 +13,23 @@ const initialState = {
 
 export default (state = initialState, action) => {
 	switch (action.type) {
+		case FETCH_RECENTLY_PLAYER_INIT:
+			return {
+				loading: action.payload.loading,
+				error: action.payload.error
+			}
+		case FETCH_RECENTLY_PLAYER_SUCCESS:
+			return {
+				recently: action.payload.recently,
+				loading: action.payload.loading,
+				error: action.payload.error
+			}
+		case FETCH_RECENTLY_PLAYER_ERROR:
+			return {
+				loading: action.payload.loading,
+				error: action.payload.error,
+				errorMessage: action.payload.errorMessage
+			}
 		default:
 			return state
 	}

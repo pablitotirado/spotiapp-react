@@ -36,4 +36,17 @@ export default class Http {
 		const response = await request.json()
 		return response
 	}
+
+	async getRecentlyPlayed() {
+		const requestOptions = {
+			headers: this.headersGet
+		}
+		const request = await fetch(
+			'https://api.spotify.com/v1/me/player/recently-played?limit=5',
+			requestOptions
+		)
+		const response = await request.json()
+
+		return response
+	}
 }
