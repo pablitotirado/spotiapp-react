@@ -16,9 +16,6 @@ const ArtistCard = ({ image, name, loadUri, uri, followers }) => (
 			allowtransparency='true'
 			title='foll'
 		></iframe>
-		<div className='artist-card__followers'>
-			Followers: <span className='artist-card__followers-span'>{followers}</span>
-		</div>
 	</div>
 )
 

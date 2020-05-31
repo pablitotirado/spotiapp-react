@@ -15,7 +15,7 @@
 	justify-content: space-around;
 
 	&__card {
-		padding: 0.5rem;
+		padding: 0.3rem;
 		min-height: 277px;
 		display: flex;
 		flex-direction: column;
@@ -29,12 +29,12 @@
 
 		&:hover {
 			cursor: pointer;
-			opacity: 50%;
+			opacity: 90%;
 		}
 	}
 
 	&__image {
-		width: 10rem;
+		width: 10.2rem;
 		display: block;
 		margin: 0 auto;
 		border-radius: 10px;

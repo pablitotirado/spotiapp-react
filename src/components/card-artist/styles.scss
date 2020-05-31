@@ -29,6 +29,13 @@
 		color: white;
 		font-size: 1rem;
 		text-transform: capitalize;
+		align-content: flex-start;
+		height: max-content;
+		margin: -2rem .5rem;
+
+		p {
+			margin: 0;
+		}
 	}
 
 	&__follow {
