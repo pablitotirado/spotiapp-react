@@ -18,28 +18,25 @@ const RecentlyPlayed = () => {
 	return (
 		<>
 			{recently && <h2 className='title'>RecentlyPlayed</h2>}
-			<div className='recently'>
+			<div className='recently animated'>
 				{recently &&
 					recently.map((album, i) => {
-						console.log(album)
 						return (
 							<div
+								className='recently__card'
 								key={`${album.track.id}_${i}`}
 								onClick={() => loadUri(album.track.album.uri)}
-								style={{ cursor: 'pointer' }}
 							>
-								<div className='recently__card animated'>
-									<img
-										src={album.track.album.images[1].url}
-										alt={album.track.album.name}
-										className='recently__image'
-									/>
-									<div className='recently__title'>
-										<p>{album.track.album.name}</p>
-									</div>
-									<div className='recently__type'>
-										<p>{album.track.album.type}</p>
-									</div>
+								<img
+									src={album.track.album.images[1].url}
+									alt={album.track.album.name}
+									className='recently__image'
+								/>
+								<div className='recently__title'>
+									<p>{album.track.album.name}</p>
+								</div>
+								<div className='recently__type'>
+									<p>{album.track.album.type}</p>
 								</div>
 							</div>
 						)

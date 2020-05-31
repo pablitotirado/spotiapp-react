@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { FetchSearch } from 'actions/action-search'
 import { getTrackAndAlbums } from 'actions/action-player'
 import NotImage from 'assets/img/notimage.png'
-
 import './styles.scss'
+
 const Artist = () => {
 	const [search, setSearch] = useState('')
 	const dispatch = useDispatch()
@@ -17,7 +17,6 @@ const Artist = () => {
 	}
 	const searchComplete = useSelector(state => state.reducerSearch.search)
 	const loadUri = uri => dispatch(getTrackAndAlbums(uri))
-	console.log(searchComplete)
 
 	return (
 		<div className='artist-container animated'>
@@ -29,6 +28,9 @@ const Artist = () => {
 				onChange={handleChange}
 				value={search}
 			/>
+			{searchComplete && (
+				<div className='artist__result'>Mostrando {searchComplete.length} resultados</div>
+			)}
 			<div className='searchComplete'>
 				{searchComplete &&
 					searchComplete.map(search => {
@@ -48,6 +50,22 @@ const Artist = () => {
 								/>
 								<div className='searchComplete__title'>
 									<p>{search.name}</p>
+								</div>
+								<iframe
+									src={`https://open.spotify.com/follow/1/?uri=${search.uri}&size=basic&theme=dark`}
+									scrolling='no'
+									frameborder='0'
+									className='searchComplete__follow'
+									allowtransparency='true'
+									title='foll'
+								></iframe>
+								<div className='searchComplete__followers'>
+									<p>
+										Followers:{' '}
+										<span className='searchComplete__followers-span'>
+											{search.followers.total}
+										</span>
+									</p>
 								</div>
 							</div>
 						)
