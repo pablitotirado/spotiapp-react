@@ -8,7 +8,6 @@ const AppLogin = lazy(() => import('./containers/auth'))
 
 export default () => {
 	const token = useSelector(state => state.reducerAuth.token)
-
 	return (
 		<Suspense fallback={<Loading loading />}>
 			<Route

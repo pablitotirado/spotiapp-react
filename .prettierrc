@@ -7,7 +7,7 @@
 	"semi": false,
 	"bracketSpacing": true,
 	"arrowParens": "avoid",
-	"printWidth": 90,
+	"printWidth": 100,
 	"quoteProps": "preserve",
 	"vueIndentScriptAndStyle": true
 }
