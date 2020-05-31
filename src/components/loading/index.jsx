@@ -14,12 +14,7 @@ const cssStyles = `
 		left: 0;
 		background-color: rgba(0, 0, 0, 0.7);
 `
-const Loading = ({
-	size = 150,
-	css = cssStyles,
-	color = '#1db954',
-	loading = false
-}) => {
+const Loading = ({ size = 150, css = cssStyles, color = '#1db954', loading = false }) => {
 	return <ScaleLoader css={css} size={size} color={color} loading={loading} />
 }
 
