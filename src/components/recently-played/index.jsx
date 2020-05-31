@@ -17,7 +17,7 @@ const RecentlyPlayed = () => {
 	const loadUri = uri => dispatch(getTrackAndAlbums(uri))
 	return (
 		<>
-			{recently && <h2 className='title'>RecentlyPlayed</h2>}
+			{recently && <h2 className='title-recently'>RecentlyPlayed</h2>}
 			<div className='recently animated'>
 				{recently &&
 					recently.map((album, i) => {

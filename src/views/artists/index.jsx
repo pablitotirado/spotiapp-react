@@ -8,13 +8,20 @@ import './styles.scss'
 
 const Artist = () => {
 	const [inputSearch, setInputSearch] = useState('')
+	const [formError, setFormError] = useState(false)
 	const search = useSelector(state => state.reducerSearch.search)
 	const loading = useSelector(state => state.reducerSearch.loading)
 	const dispatch = useDispatch()
 
 	const handleChange = e => setInputSearch(e.target.value)
-	const handlePress = e =>
-		e.keyCode === 13 && inputSearch !== '' && loadSearch(inputSearch) && setInputSearch('')
+	const handlePress = e => {
+		if (!inputSearch) {
+			setFormError(true)
+		} else {
+			setFormError(false)
+			e.keyCode === 13 && loadSearch(inputSearch) && setInputSearch('')
+		}
+	}
 	const loadSearch = search => dispatch(FetchSearch(search))
 	const loadUri = uri => dispatch(getTrackAndAlbums(uri))
 
@@ -30,6 +37,7 @@ const Artist = () => {
 					onChange={handleChange}
 					value={inputSearch}
 				/>
+				{formError && <div className='error-search animated'> Ingrese una busqueda </div>}
 				{search && <div className='artist__result'>Mostrando {search.length} resultados</div>}
 				<div className='artist-container__search'>
 					{search &&

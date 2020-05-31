@@ -2,6 +2,7 @@ import React, { useLayoutEffect } from 'react'
 import { FetchAlbumsActions } from 'actions/actions-browser.js'
 import { getTrackAndAlbums } from 'actions/action-player'
 import { useSelector, useDispatch } from 'react-redux'
+import ArtistCard from 'components/card-artist'
 import Loading from 'components/loading'
 import './styles.scss'
 
@@ -31,11 +32,7 @@ const NewReleases = () => {
 							className='animated'
 						>
 							<div className='new-releases__card'>
-								<img
-									src={album.images[1].url}
-									alt={album.name}
-									className='new-releases__image'
-								/>
+								<img src={album.images[1].url} alt={album.name} className='new-releases__image' />
 								<div className='new-releases__title'>
 									<p>{album.name}</p>
 								</div>

@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from 'react'
-import { NavLink, Redirect } from 'react-router-dom'
+import { NavLink, Redirect, Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 //Images
@@ -29,32 +29,17 @@ const Nav = ({ children }) => {
 		<>
 			<div className='nav'>
 				<div className='nav__left'>
-					<div className='title-container'>
+					<Link to='/home' className='title-container'>
 						<Logo src={Spotify} className='title-container__logo' />
 						<h1 className='title-container__title'>SpotifyClon</h1>
-					</div>
-					<NavLink
-						tabIndex={1}
-						className='nav__link'
-						activeClassName='nav__link-active'
-						to='/home'
-					>
+					</Link>
+					<NavLink tabIndex={1} className='nav__link' activeClassName='nav__link-active' to='/home'>
 						Home
 					</NavLink>
-					<NavLink
-						tabIndex={2}
-						className='nav__link'
-						activeClassName='nav__link-active'
-						to='/albums'
-					>
+					<NavLink tabIndex={2} className='nav__link' activeClassName='nav__link-active' to='/albums'>
 						Albumes
 					</NavLink>
-					<NavLink
-						tabIndex={3}
-						className='nav__link'
-						activeClassName='nav__link-active'
-						to='/artists'
-					>
+					<NavLink tabIndex={3} className='nav__link' activeClassName='nav__link-active' to='/artists'>
 						Artista
 					</NavLink>
 				</div>
@@ -62,18 +47,18 @@ const Nav = ({ children }) => {
 					<div className='children'>{children}</div>
 				</div>
 				<div className='nav__right'>
-					<img
-						className='nav__right-user__img'
-						src={validationImages ? user.images[0].url : NotImage}
-						alt={user.display_name}
-					/>
-					<p className='nav__right-user__name'>{user.display_name}</p>
-					<p className='nav__right-user__product'>
-						{user.product ? user.product : 'Free'}
-					</p>
-					<button tabIndex={5} className='nav__right-user__logout' onClick={logout}>
-						Salir
-					</button>
+					<div className='user'>
+						<img
+							className='user__img'
+							src={validationImages ? user.images[0].url : NotImage}
+							alt={user.display_name}
+						/>
+						<p className='user__name'>{user.display_name}</p>
+						<p className='user__product'>{user.product ? user.product : 'Free'}</p>
+						<button tabIndex={5} className='user__logout' onClick={logout}>
+							Salir
+						</button>
+					</div>
 				</div>
 			</div>
 			{!token && <Redirect to='/login' />}
