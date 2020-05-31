@@ -1,13 +1,10 @@
-.title-new-releases {
-	text-align: center;
-}
 .recently {
 	margin-top: 1rem;
 	display: flex;
 	justify-content: space-around;
 
 	&__card {
-		padding: 1rem;
+		padding: .5rem;
 		min-height: 277px;
 		border-radius: 10px;
 		background-color: #282828;
@@ -24,9 +21,10 @@
 	}
 
 	&__image {
-		width: 9rem;
+		width: 10rem;
 		display: block;
 		margin: 0 auto;
+		border-radius: 5px;
 	}
 
 	&__title {

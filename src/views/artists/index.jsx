@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { FetchSearch } from 'actions/action-search'
-import { getTrackAndAlbums } from 'actions/action-player'
+import { getTrackAndAlbums } from 'actions/action-player.js'
+import Loading from 'components/loading'
 import NotImage from 'assets/img/notimage.png'
 import './styles.scss'
 
 const Artist = () => {
 	const [search, setSearch] = useState('')
 	const dispatch = useDispatch()
+
 	const loadSearch = search => dispatch(FetchSearch(search))
 	const handleChange = e => setSearch(e.target.value)
 	const handlePress = e => {
@@ -17,6 +19,10 @@ const Artist = () => {
 	}
 	const searchComplete = useSelector(state => state.reducerSearch.search)
 	const loadUri = uri => dispatch(getTrackAndAlbums(uri))
+
+	const loading = useSelector(state => state.reducerSearch.loading)
+
+	console.log(loading)
 
 	return (
 		<div className='artist-container animated'>
@@ -31,41 +37,39 @@ const Artist = () => {
 			{searchComplete && (
 				<div className='artist__result'>Mostrando {searchComplete.length} resultados</div>
 			)}
-			<div className='searchComplete'>
+			{loading && <Loading loading />}
+			<div className='artist-container__search'>
 				{searchComplete &&
 					searchComplete.map(search => {
 						const validationImages =
 							search.images !== undefined && search.images.length > 0
-						console.log(search)
 						return (
 							<div
 								key={search.id}
-								className='searchComplete__card'
+								className='search-card'
 								onClick={() => loadUri(search.uri)}
 							>
 								<img
 									src={validationImages ? search.images[1].url : NotImage}
 									alt={search.name}
-									className='searchComplete__image'
+									className='search-card__image'
 								/>
-								<div className='searchComplete__title'>
+								<div className='search-card__name'>
 									<p>{search.name}</p>
 								</div>
 								<iframe
 									src={`https://open.spotify.com/follow/1/?uri=${search.uri}&size=basic&theme=dark`}
 									scrolling='no'
 									frameborder='0'
-									className='searchComplete__follow'
+									className='search-card__follow'
 									allowtransparency='true'
 									title='foll'
 								></iframe>
-								<div className='searchComplete__followers'>
-									<p>
-										Followers:{' '}
-										<span className='searchComplete__followers-span'>
-											{search.followers.total}
-										</span>
-									</p>
+								<div className='search-card__followers'>
+									Followers:{' '}
+									<span className='search-card__followers-span'>
+										{search.followers.total}
+									</span>
 								</div>
 							</div>
 						)
