@@ -13,7 +13,8 @@ const Artist = () => {
 	const dispatch = useDispatch()
 
 	const handleChange = e => setInputSearch(e.target.value)
-	const handlePress = e => e.keyCode === 13 && loadSearch(inputSearch) && setInputSearch('')
+	const handlePress = e =>
+		e.keyCode === 13 && inputSearch !== '' && loadSearch(inputSearch) && setInputSearch('')
 	const loadSearch = search => dispatch(FetchSearch(search))
 	const loadUri = uri => dispatch(getTrackAndAlbums(uri))
 
