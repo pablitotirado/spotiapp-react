@@ -10,7 +10,7 @@ import Spotify from 'assets/img/logotipo.svg'
 import { ClearStorageAction } from 'actions/actions-auth'
 import { FetchUser } from 'actions/action-user'
 import './styles.scss'
-
+console.log('hola prueba')
 const Nav = ({ children }) => {
 	const token = useSelector(state => state.reducerAuth.token)
 	const user = useSelector(state => state.reducerUser.user)
