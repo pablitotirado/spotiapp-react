@@ -10,10 +10,10 @@ import Spotify from 'assets/img/logotipo.svg'
 import { ClearStorageAction } from 'actions/actions-auth'
 import { FetchUser } from 'actions/action-user'
 import './styles.scss'
-console.log('hola prueba')
+
 const Nav = ({ children }) => {
 	const token = useSelector(state => state.reducerAuth.token)
-	const user = useSelector(state => state.reducerUser.user)
+	const { images, display_name, product } = useSelector(state => state.reducerUser.user)
 	const dispatch = useDispatch()
 
 	const logout = () => dispatch(ClearStorageAction())
@@ -23,7 +23,7 @@ const Nav = ({ children }) => {
 		getUser()
 	}, [dispatch])
 
-	const validationImages = user.images !== undefined && user.images.length > 0
+	const validationImages = images !== undefined && images.length > 0
 
 	return (
 		<>
@@ -33,29 +33,25 @@ const Nav = ({ children }) => {
 						<Logo src={Spotify} className='title-container__logo' />
 						<h1 className='title-container__title'>SpotifyClon</h1>
 					</Link>
-					<NavLink tabIndex={1} className='nav__link' activeClassName='nav__link-active' to='/home'>
+					<NavLink className='nav__link' activeClassName='nav__link-active' to='/home'>
 						Home
 					</NavLink>
-					<NavLink tabIndex={2} className='nav__link' activeClassName='nav__link-active' to='/albums'>
+					<NavLink className='nav__link' activeClassName='nav__link-active' to='/albums'>
 						Albumes
 					</NavLink>
-					<NavLink tabIndex={3} className='nav__link' activeClassName='nav__link-active' to='/artists'>
+					<NavLink className='nav__link' activeClassName='nav__link-active' to='/artists'>
 						Artista
 					</NavLink>
 				</div>
-				<div tabIndex={4} className='nav__center'>
+				<div className='nav__center'>
 					<div className='children'>{children}</div>
 				</div>
 				<div className='nav__right'>
 					<div className='user'>
-						<img
-							className='user__img'
-							src={validationImages ? user.images[0].url : NotImage}
-							alt={user.display_name}
-						/>
-						<p className='user__name'>{user.display_name}</p>
-						<p className='user__product'>{user.product ? user.product : 'Free'}</p>
-						<button tabIndex={5} className='user__logout' onClick={logout}>
+						<img className='user__img' src={validationImages ? images[0].url : NotImage} alt={display_name} />
+						<p className='user__name'>{display_name}</p>
+						<p className='user__product'>{product ? product : 'Free'}</p>
+						<button className='user__logout' onClick={logout}>
 							Salir
 						</button>
 					</div>

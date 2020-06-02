@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { FetchRecently } from 'actions/action-recently-played'
-import { getTrackAndAlbums } from 'actions/action-player'
+import { getTrackAndAlbums } from 'actions/action-player.js'
 import './styles.scss'
 
 const RecentlyPlayed = () => {
@@ -10,15 +10,15 @@ const RecentlyPlayed = () => {
 	const recently = useSelector(state => state.reducerRecently.recently)
 
 	useEffect(() => {
-		const load = () => dispatch(FetchRecently())
-		load()
+		const loadingRecently = () => dispatch(FetchRecently())
+		loadingRecently()
 	}, [dispatch])
 
 	const loadUri = uri => dispatch(getTrackAndAlbums(uri))
 	return (
 		<>
-			{recently && <h2 className='title-recently'>RecentlyPlayed</h2>}
-			<div className='recently animated'>
+			<h2 className='recently__heading'>RecentlyPlayed</h2>
+			<div className='recently__grid animated'>
 				{recently &&
 					recently.map((album, i) => {
 						return (

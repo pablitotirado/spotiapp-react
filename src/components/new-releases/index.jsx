@@ -18,26 +18,21 @@ const NewReleases = () => {
 
 	return (
 		<>
-			<h2 className='title'>new releases</h2>
-			{loading ? (
-				<Loading />
-			) : (
-				<div className='new-releases'>
-					{albums.map(({ id, uri, images: [{ url }], name, album_type }) => (
-						<div key={id} onClick={() => loadUri(uri)} className='animated'>
-							<div className='new-releases__card'>
-								<img src={url} alt={name} className='new-releases__image' />
-								<div className='new-releases__title'>
-									<p>{name}</p>
-								</div>
-								<div className='new-releases__type'>
-									<p>{album_type}</p>
-								</div>
+			<h2 className='new-releases__heading'>new releases</h2>
+			<div className='new-releases__grid'>
+				{albums &&
+					albums.map(({ id, uri, images: [{ url }], name, album_type }) => (
+						<div key={id} onClick={() => loadUri(uri)} className='new-releases__card'>
+							<img src={url} alt={name} className='new-releases__image' />
+							<div className='new-releases__title'>
+								<p>{name}</p>
+							</div>
+							<div className='new-releases__type'>
+								<p>{album_type}</p>
 							</div>
 						</div>
 					))}
-				</div>
-			)}
+			</div>
 		</>
 	)
 }
