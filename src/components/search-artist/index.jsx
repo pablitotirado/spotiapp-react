@@ -51,6 +51,7 @@ const SearchArtist = () => {
 									loadUri={loadUri}
 									uri={uri}
 									followers={total}
+									foll
 								/>
 							)
 						})}
