@@ -18,7 +18,7 @@ const RecentlyPlayed = () => {
 	const loadUri = uri => dispatch(getTrackAndAlbums(uri))
 	return (
 		<>
-			<h2 className='recently__heading'>RecentlyPlayed</h2>
+			<h2 className='recently__heading'>escuchado recientemente</h2>
 			<div className='recently__grid animated'>
 				{recently &&
 					recently.map(
@@ -36,6 +36,7 @@ const RecentlyPlayed = () => {
 							},
 							i
 						) => {
+							console.log(name)
 							return (
 								<CardArtist
 									key={`${id}_${i}`}

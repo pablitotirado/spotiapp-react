@@ -13,7 +13,9 @@ import './styles.scss'
 
 const Nav = ({ children }) => {
 	const token = useSelector(state => state.reducerAuth.token)
-	const { images, display_name, product } = useSelector(state => state.reducerUser.user)
+	const { images, display_name, product } = useSelector(
+		state => state.reducerUser.user
+	)
 	const dispatch = useDispatch()
 
 	const logout = () => dispatch(ClearStorageAction())
@@ -31,31 +33,45 @@ const Nav = ({ children }) => {
 				<div className='nav__left'>
 					<Link to='/home' className='title-container'>
 						<Logo src={Spotify} className='title-container__logo' />
-						<h1 className='title-container__title'>SpotifyClon</h1>
+						<h1 className='title-container__title'>Spotify</h1>
 					</Link>
-					<NavLink className='nav__link' activeClassName='nav__link-active' to='/home'>
+					<NavLink
+						className='nav__link'
+						activeClassName='nav__link-active'
+						to='/home'
+					>
 						Home
 					</NavLink>
-					<NavLink className='nav__link' activeClassName='nav__link-active' to='/albums'>
+					<NavLink
+						className='nav__link'
+						activeClassName='nav__link-active'
+						to='/albums'
+					>
 						Albumes
 					</NavLink>
-					<NavLink className='nav__link' activeClassName='nav__link-active' to='/artists'>
+					<NavLink
+						className='nav__link'
+						activeClassName='nav__link-active'
+						to='/artists'
+					>
 						Artista
 					</NavLink>
 				</div>
-				<div className='nav__center'>
-					<div className='children'>{children}</div>
-				</div>
-				<div className='nav__right'>
+				<div className='nav__center'>{children}</div>
+				{/* <div className='nav__right'>
 					<div className='user'>
-						<img className='user__img' src={validationImages ? images[0].url : NotImage} alt={display_name} />
+						<img
+							className='user__img'
+							src={validationImages ? images[0].url : NotImage}
+							alt={display_name}
+						/>
 						<p className='user__name'>{display_name}</p>
 						<p className='user__product'>{product ? product : 'Free'}</p>
 						<button className='user__logout' onClick={logout}>
 							Salir
 						</button>
 					</div>
-				</div>
+				</div> */}
 			</div>
 			{!token && <Redirect to='/login' />}
 		</>

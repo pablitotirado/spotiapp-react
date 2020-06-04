@@ -19,10 +19,10 @@ const NewReleases = () => {
 
 	return (
 		<>
-			<h2 className='new-releases__heading'>new releases</h2>
+			<h2 className='new-releases__heading'>nuevos lanzamientos</h2>
 			<div className='new-releases__grid'>
 				{albums &&
-					albums.map(({ id, uri, images: [{ url }], name, album_type }) => (
+					albums.map(({ id, uri, images: [, { url }], name, album_type }) => (
 						<CardArtist
 							key={id}
 							image={url}

@@ -14,7 +14,10 @@ export default class Http {
 		const requestOptions = {
 			headers: this.headersGet
 		}
-		const request = await fetch(`${this.query}${this.queryReleases}`, requestOptions)
+		const request = await fetch(
+			`${this.query}${this.queryReleases}`,
+			requestOptions
+		)
 		const response = await request.json()
 		return response
 	}
@@ -23,7 +26,10 @@ export default class Http {
 		const requestOptions = {
 			headers: this.headersGet
 		}
-		const request = await fetch(`${this.query}${this.queryGenreSeeds}`, requestOptions)
+		const request = await fetch(
+			`${this.query}${this.queryGenreSeeds}`,
+			requestOptions
+		)
 		const response = await request.json()
 		return response
 	}
@@ -32,7 +38,10 @@ export default class Http {
 		const requestOptions = {
 			headers: this.headersGet
 		}
-		const request = await fetch(`${this.query}${this.queryUser}`, requestOptions)
+		const request = await fetch(
+			`${this.query}${this.queryUser}`,
+			requestOptions
+		)
 		const response = await request.json()
 		return response
 	}
@@ -50,12 +59,12 @@ export default class Http {
 		return response
 	}
 
-	async getSearch(search) {
+	async getSearch(search, type = 'artist') {
 		const requestOptions = {
 			headers: this.headersGet
 		}
 		const request = await fetch(
-			`https://api.spotify.com/v1/search?q=${search}&type=artist`,
+			`https://api.spotify.com/v1/search?q=${search}&type=${type}`,
 			requestOptions
 		)
 		const response = await request.json()

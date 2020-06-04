@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { FetchTokenAction } from 'actions/actions-auth.js'
@@ -12,7 +12,11 @@ const Login = ({ history }) => {
 	const { token, loading } = useSelector(state => state.reducerAuth)
 	const dispatch = useDispatch()
 
-	const login = () => dispatch(FetchTokenAction(history.location.hash.slice(14, -34)))
+	useLayoutEffect(() => {
+		const login = () =>
+			dispatch(FetchTokenAction(history.location.hash.slice(14, -34)))
+		history.location.hash && login() && history.push('/home')
+	}, [history, dispatch])
 
 	return (
 		<>
@@ -29,11 +33,8 @@ const Login = ({ history }) => {
 						className='container-login__outside'
 						href='https://accounts.spotify.com/authorize?client_id=366e20586971408a82848c8ac6d8f2a3&redirect_uri=http://localhost:3000/login&scope=user-read-private%20user-read-recently-played&response_type=token'
 					>
-						Autenticar con Spotify
+						Autenticar
 					</a>
-					<button className='container-login__button' onClick={() => history.location.hash && login()}>
-						Ingresar a SpotifyClon
-					</button>
 				</div>
 			</div>
 			{token && <Redirect to='/home' />}

@@ -1,16 +1,19 @@
 .artist-container {
 	&__input {
 		height: 40px;
+		width: 100%;
 		border-radius: 5px;
 		border: none;
 		padding: 0 0 0 1rem;
-		width: 100%;
 	}
 
 	&__search {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
+		width: 100%;
+		margin-top: 1rem;
+		display: grid;
+		grid-template-columns: repeat(4, 24.3%);
+		column-gap: 0.6rem;
+		row-gap: 0.6rem;
 	}
 }
 

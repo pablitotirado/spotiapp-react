@@ -1,12 +1,9 @@
-import {
-	FETCH_TOKEN_SUCCESS,
-	CLEAR_STORAGE
-} from 'types/types-auth'
+import { FETCH_TOKEN_SUCCESS, CLEAR_STORAGE } from 'types/types-auth'
 
 const initialState = {
 	token: localStorage.getItem('access_token') ? true : false,
 	error: false,
-	loading: false,
+	loading: false
 }
 export default (state = initialState, action) => {
 	switch (action.type) {
@@ -17,6 +14,7 @@ export default (state = initialState, action) => {
 				loading: action.payload.loading
 			}
 		case CLEAR_STORAGE:
+			localStorage.clear()
 			return {
 				token: action.payload.token
 			}

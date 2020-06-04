@@ -20,7 +20,6 @@ export const FetchTokenAction = token => {
 }
 
 const clearStorage = () => {
-	localStorage.clear()
 	return {
 		type: CLEAR_STORAGE,
 		payload: {

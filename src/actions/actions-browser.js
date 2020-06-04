@@ -3,6 +3,7 @@ import {
 	FETCH_ALBUMS_SUCCESS,
 	FETCH_ALBUMS_ERROR
 } from 'types/types-browser.js'
+import { CLEAR_STORAGE } from 'types/types-auth.js'
 import Http from 'api/client-http'
 
 const releases = new Http()
@@ -33,6 +34,12 @@ export const FetchAlbumsActions = () => {
 					loading: false,
 					error: true,
 					messageError: JSON.stringify(error.message)
+				}
+			})
+			dispatch({
+				type: CLEAR_STORAGE,
+				payload: {
+					token: false
 				}
 			})
 		}

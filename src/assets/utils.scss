@@ -1,0 +1,9 @@
+@function rem-calc($size) {
+	$remSize: $size / 16;
+	@return #{$remSize}rem;
+}
+
+$green-spoti-primary: #1db954;
+$green-spoti-secondary: #5aba54;
+$black: #040404;
+$gray-primary: #282828;

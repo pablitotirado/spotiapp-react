@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { FetchSearch } from 'actions/action-search.js'
+import { FetchSearchArtist } from 'actions/action-search.js'
 import { getTrackAndAlbums } from 'actions/action-player.js'
 import Loading from 'components/loading'
 import ArtistCard from 'components/card-artist'
@@ -22,7 +22,7 @@ const SearchArtist = () => {
 			e.key === 'Enter' && loadSearch(inputSearch) && setInputSearch('')
 		}
 	}
-	const loadSearch = search => dispatch(FetchSearch(search))
+	const loadSearch = search => dispatch(FetchSearchArtist(search))
 	const loadUri = uri => dispatch(getTrackAndAlbums(uri))
 
 	return (
@@ -37,8 +37,14 @@ const SearchArtist = () => {
 					onChange={handleChange}
 					value={inputSearch}
 				/>
-				{formError && <div className='error-search animated'> Ingrese una busqueda </div>}
-				{search && <div className='artist__result'>Mostrando {search.length} resultados</div>}
+				{formError && (
+					<div className='error-search animated'> Ingrese una busqueda </div>
+				)}
+				{search && (
+					<div className='artist__result'>
+						Mostrando {search.length} resultados
+					</div>
+				)}
 				<div className='artist-container__search'>
 					{search &&
 						search.map(({ id, images, name, uri, followers: { total } }) => {

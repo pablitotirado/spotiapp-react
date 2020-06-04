@@ -20,7 +20,12 @@ const AppContainer = () => {
 			{trackExist && (
 				<iframe
 					src={`https://open.spotify.com/embed?uri=${uri}`}
-					style={{ position: 'fixed', bottom: 0, width: '100%', cursor: 'pointer' }}
+					style={{
+						position: 'fixed',
+						bottom: 0,
+						width: '100%',
+						cursor: 'pointer'
+					}}
 					height='80'
 					className='animated'
 					frameBorder='0'

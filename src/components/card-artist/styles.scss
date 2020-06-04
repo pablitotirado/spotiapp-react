@@ -1,54 +1,77 @@
+@import 'assets/utils';
+%description {
+	font-size: 0.8rem;
+	color: white;
+	text-transform: capitalize;
+}
+
 .artist-card {
-	margin: max(.5rem) 0;
-	flex-basis: 19%;
-	padding: 0.3rem;
-	border-radius: 10px;
-	min-height: 268.42px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
-	background: linear-gradient(to top, lighten(#000000, 6%), #3d3d3d);
-	box-shadow: 6px 7px 21px 0px rgba(0, 0, 0, 0.75);
-	border: 1px solid darken(gray, 41%);
-	&:hover {
-		cursor: pointer;
-		opacity: 90%;
+	height: 100%;
+	&-container {
+		height: max(17rem);
+		padding: 1rem;
+		border-radius: rem-calc(10);
+		background: #282828;
+		position: relative;
 	}
 
+	&__play {
+		width: 3rem;
+		height: 3rem;
+		background-color: $green-spoti-primary;
+		border-radius: 50%;
+		display: none;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		right: 0.5rem;
+		bottom: 0.5rem;
+
+		&-icon {
+			font-size: 1.5rem;
+			color: white;
+			margin-right: -0.3rem;
+			margin-top: -0.2rem;
+		}
+	}
+	&:hover {
+		.artist-card__play {
+			display: flex;
+			cursor: pointer;
+		}
+	}
+
+	&__description {
+	}
 	&__image {
-		border-radius: 10px;
+		border-radius: 50%;
 		width: 100%;
-		flex: 1 1 70px;
+		height: 10rem;
+		margin-bottom: 1rem;
 	}
 
 	&__name {
-		align-self: flex-start;
 		color: white;
-		font-size: 0.9rem;
-		margin-bottom: 0.5rem;
+		font-size: 0.8rem;
+		text-transform: capitalize;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
 	&__follow {
-		width: 200px;
-		height: 30px;
+		width: rem-calc(200);
+		height: rem-calc(30);
 	}
 
 	&__type {
-		align-self: flex-start;
-		font-size: 0.8rem;
-		margin: 0.3rem 0;
-		color: white;
-		text-transform: capitalize;
+		@extend %description;
 	}
 	&__followers {
-		font-size: 0.8rem;
-		margin: 0.3rem 0;
-		color: white;
-		text-transform: capitalize;
+		@extend %description;
 
 		&-span {
-			color: #1db954;
+			color: $green-spoti-primary;
 		}
 	}
 }

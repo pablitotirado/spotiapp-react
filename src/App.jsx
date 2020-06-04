@@ -10,7 +10,11 @@ export default function App() {
 	const token = useSelector(state => state.reducerAuth.token)
 	return (
 		<Suspense fallback={<Loading loading />}>
-			<Route render={props => (token ? <AppContainer {...props} /> : <AppLogin {...props} />)} />
+			<Route
+				render={props =>
+					token ? <AppContainer {...props} /> : <AppLogin {...props} />
+				}
+			/>
 		</Suspense>
 	)
 }

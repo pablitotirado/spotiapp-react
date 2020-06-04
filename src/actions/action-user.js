@@ -1,4 +1,9 @@
-import { FETCH_USER_INIT, FETCH_USER_SUCCESS, FETCH_USER_ERROR } from 'types/types-user'
+import {
+	FETCH_USER_INIT,
+	FETCH_USER_SUCCESS,
+	FETCH_USER_ERROR
+} from 'types/types-user'
+import { CLEAR_STORAGE } from 'types/types-auth.js'
 import Http from 'api/client-http'
 
 const user = new Http()
@@ -29,6 +34,12 @@ export const FetchUser = () => {
 					loading: false,
 					error: true,
 					errorMessage: JSON.stringify(error.message)
+				}
+			})
+			dispatch({
+				type: CLEAR_STORAGE,
+				payload: {
+					token: false
 				}
 			})
 		}
