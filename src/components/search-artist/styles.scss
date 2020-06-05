@@ -1,31 +1,16 @@
+@import 'assets/utils';
 .artist-container {
-	&__input {
-		height: 40px;
-		width: 100%;
-		border-radius: 5px;
-		border: none;
-		padding: 0 0 0 1rem;
-	}
-
 	&__search {
-		width: 100%;
 		margin-top: 1rem;
+		width: 100%;
 		display: grid;
-		grid-template-columns: repeat(4, 24.3%);
-		column-gap: 0.6rem;
-		row-gap: 0.6rem;
+		grid-template-columns: repeat(5, 18.5%);
+		column-gap: 1.2rem;
+		row-gap: 1.2rem;
 	}
 }
 
 .artist__result {
 	color: white;
-	margin-top: 1rem;
-}
-
-.error-search {
-	color: white;
-	margin-top: 0.5rem;
-	padding: 0.5rem;
-	background: lighten(#000000, 20%);
-	border-radius: 5px;
+	margin-left: 1rem;
 }

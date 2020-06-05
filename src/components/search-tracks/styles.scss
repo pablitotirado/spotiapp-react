@@ -1,0 +1,60 @@
+@import 'assets/utils';
+
+%text-content {
+	width: 100%;
+	margin: auto;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.table-tracks {
+	cursor: pointer;
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(4, 15%) 5%;
+	grid-template-rows: auto;
+	column-gap: 9%;
+	margin-bottom: 1rem;
+	color: white;
+	border-bottom: 1px solid lighten(black, 10%);
+	background: #282828;
+	border-radius: 20px;
+	padding: 0.4rem 1rem;
+	&__name {
+		@extend %text-content;
+	}
+
+	&__artist {
+		@extend %text-content;
+	}
+
+	&__duration {
+		@extend %text-content;
+	}
+
+	&__album {
+		@extend %text-content;
+	}
+
+	&__play {
+		width: 2rem;
+		height: 2rem;
+		margin: auto;
+		background-color: $green-spoti-primary;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&-icon {
+			font-size: 1.5rem;
+			color: white;
+			margin-right: -0.3rem;
+			margin-top: -0.2rem;
+		}
+	}
+}
+
+.container-search-tracks {
+	margin-top: 3.2rem;
+}

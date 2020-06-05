@@ -1,6 +1,6 @@
 import { lazy } from 'react'
 const Home = lazy(() => import('views/home'))
-const Albums = lazy(() => import('views/albums'))
+const Tracks = lazy(() => import('views/tracks'))
 const Artist = lazy(() => import('views/artists'))
 
 export default [
@@ -10,9 +10,9 @@ export default [
 		exact: true
 	},
 	{
-		component: Albums,
+		component: Tracks,
 		exact: true,
-		path: '/albums'
+		path: '/tracks'
 	},
 	{
 		component: Artist,

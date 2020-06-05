@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from 'react'
-import { NavLink, Redirect, Link } from 'react-router-dom'
+import { NavLink, Redirect, Link, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 //Images
@@ -9,17 +9,16 @@ import Spotify from 'assets/img/logotipo.svg'
 //Actions
 import { ClearStorageAction } from 'actions/actions-auth'
 import { FetchUser } from 'actions/action-user'
+import InputSearch from 'components/input-search'
 import './styles.scss'
 
 const Nav = ({ children }) => {
 	const token = useSelector(state => state.reducerAuth.token)
-	const { images, display_name, product } = useSelector(
-		state => state.reducerUser.user
-	)
+	const { images, display_name } = useSelector(state => state.reducerUser.user)
 	const dispatch = useDispatch()
 
 	const logout = () => dispatch(ClearStorageAction())
-
+	const history = useHistory()
 	useLayoutEffect(() => {
 		const getUser = () => dispatch(FetchUser())
 		getUser()
@@ -36,42 +35,50 @@ const Nav = ({ children }) => {
 						<h1 className='title-container__title'>Spotify</h1>
 					</Link>
 					<NavLink
+						to='/home'
 						className='nav__link'
 						activeClassName='nav__link-active'
-						to='/home'
 					>
 						Home
 					</NavLink>
 					<NavLink
+						to='/tracks'
 						className='nav__link'
 						activeClassName='nav__link-active'
-						to='/albums'
 					>
-						Albumes
+						Canciones
 					</NavLink>
 					<NavLink
+						to='/artists'
 						className='nav__link'
 						activeClassName='nav__link-active'
-						to='/artists'
 					>
-						Artista
+						Artistas
 					</NavLink>
 				</div>
-				<div className='nav__center'>{children}</div>
-				{/* <div className='nav__right'>
-					<div className='user'>
-						<img
-							className='user__img'
-							src={validationImages ? images[0].url : NotImage}
-							alt={display_name}
-						/>
-						<p className='user__name'>{display_name}</p>
-						<p className='user__product'>{product ? product : 'Free'}</p>
-						<button className='user__logout' onClick={logout}>
-							Salir
-						</button>
+				<div className='nav__center'>
+					<div
+						className={`top-nav ${
+							history.location.pathname === '/home' && 'top-nav--user-left'
+						}`}
+					>
+						{history.location.pathname !== '/home' && <InputSearch />}
+						<div className='container-wrapper-user'>
+							<div className='user'>
+								<img
+									className='user__image'
+									src={validationImages ? images[0].url : NotImage}
+									alt={display_name}
+								/>
+								<p className='user__name'>{display_name}</p>
+							</div>
+							<button className='user__logout' onClick={logout}>
+								Salir
+							</button>
+						</div>
 					</div>
-				</div> */}
+					{children}
+				</div>
 			</div>
 			{!token && <Redirect to='/login' />}
 		</>

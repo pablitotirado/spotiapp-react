@@ -1,0 +1,26 @@
+@import 'assets/utils';
+.input-search {
+	position: relative;
+	&__input {
+		height: 2rem;
+		width: rem-calc(364);
+		padding: 0 2.5rem;
+		border: none;
+		border-radius: rem-calc(20);
+	}
+
+	&__glass {
+		width: 1.4rem;
+		position: absolute;
+		top: 0.4rem;
+		left: 0.5rem;
+	}
+}
+
+.error-search {
+	color: white;
+	margin-top: 0.5rem;
+	padding: 0.5rem;
+	background: lighten(#000000, 20%);
+	border-radius: 5px;
+}

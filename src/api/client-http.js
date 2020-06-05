@@ -64,7 +64,9 @@ export default class Http {
 			headers: this.headersGet
 		}
 		const request = await fetch(
-			`https://api.spotify.com/v1/search?q=${search}&type=${type}`,
+			`https://api.spotify.com/v1/search?q=${search}&type=${type}${
+				type === 'track' ? '&limit=30' : ''
+			}`,
 			requestOptions
 		)
 		const response = await request.json()

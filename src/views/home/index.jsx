@@ -5,7 +5,7 @@ import './styles.scss'
 const Home = () => {
 	return (
 		<>
-			<div className='home-container'>
+			<div className='home-container animated'>
 				<NewReleases />
 				<RecentlyPlayed />
 			</div>

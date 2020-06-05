@@ -2,16 +2,18 @@ import React from 'react'
 import NotImage from 'assets/img/notimage.png'
 import './styles.scss'
 
-const ArtistCard = ({ image, name, loadUri, uri, foll, type }) => {
+const ArtistCard = ({ image, name, loadUri, uri, foll, type, large }) => {
 	return (
 		<div className='artist-card-container'>
 			<div className='artist-card' onClick={() => loadUri(uri)}>
 				<img
 					src={image ? image : NotImage}
 					alt={name}
-					className='artist-card__image'
+					className={`artist-card__image ${
+						large && 'artist-card__image--large'
+					}`}
 				/>
-				<div className='artist-card__description'>
+				<div>
 					<p className='artist-card__name'>{name}</p>
 					{!foll && <p className='artist-card__type'>{type}</p>}
 				</div>
