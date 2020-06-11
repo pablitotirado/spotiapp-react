@@ -6,7 +6,7 @@ import Nav from 'components/nav'
 import Loading from 'components/loading'
 
 const AppContainer = () => {
-	const { uri, trackExist } = useSelector(state => state.reducerPlayer)
+	const { uri, trackExist } = useSelector(state => state.player)
 	return (
 		<>
 			<Nav>

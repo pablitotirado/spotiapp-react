@@ -5,7 +5,7 @@ import './styles.scss'
 
 const Artist = () => {
 	const { searchArtist, loadingArtist } = useSelector(
-		state => state.reducerSearch
+		state => state.search
 	)
 	return (
 		<>

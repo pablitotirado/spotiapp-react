@@ -6,7 +6,7 @@ import CardArtist from 'components/card-artist'
 import './styles.scss'
 
 const NewReleases = ({ className }) => {
-	const { albums, loading, error } = useSelector(state => state.reducerBrowser)
+	const { albums, loading, error } = useSelector(state => state.browser)
 	const dispatch = useDispatch()
 
 	useLayoutEffect(() => {

@@ -7,35 +7,33 @@ import Http from 'api/client-http'
 
 const genre = new Http()
 
-export const FetchGenres = () => {
-	return async dispatch => {
+export const FetchGenres = () => async dispatch => {
+	dispatch({
+		type: FETCH_GENRE_SEEDS_INIT,
+		payload: {
+			loading: true,
+			error: false,
+			errorMessage: false
+		}
+	})
+	try {
+		const response = await genre.GenreSeeds()
 		dispatch({
-			type: FETCH_GENRE_SEEDS_INIT,
+			type: FETCH_GENRE_SEEDS_SUCCESS,
 			payload: {
-				loading: true,
-				error: false,
+				genres: response.genres,
+				loading: false,
 				errorMessage: false
 			}
 		})
-		try {
-			const response = await genre.GenreSeeds()
-			dispatch({
-				type: FETCH_GENRE_SEEDS_SUCCESS,
-				payload: {
-					genres: response.genres,
-					loading: false,
-					errorMessage: false
-				}
-			})
-		} catch (error) {
-			dispatch({
-				type: FETCH_GENRE_SEEDS_ERROR,
-				payload: {
-					error: true,
-					loading: false,
-					errorMessage: JSON.stringify(error.message)
-				}
-			})
-		}
+	} catch (error) {
+		dispatch({
+			type: FETCH_GENRE_SEEDS_ERROR,
+			payload: {
+				error: true,
+				loading: false,
+				errorMessage: JSON.stringify(error.message)
+			}
+		})
 	}
 }

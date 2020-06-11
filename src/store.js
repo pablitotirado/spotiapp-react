@@ -12,13 +12,13 @@ import reducerPlayer from 'reducers/reducer-player'
 import reducerSearch from 'reducers/reducer-search'
 
 const reducer = combineReducers({
-	reducerAuth,
-	reducerBrowser,
-	reducerGenres,
-	reducerUser,
-	reducerRecently,
-	reducerPlayer,
-	reducerSearch
+	auth: reducerAuth,
+	browser: reducerBrowser,
+	genres: reducerGenres,
+	user: reducerUser,
+	recently: reducerRecently,
+	player: reducerPlayer,
+	search: reducerSearch
 })
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))

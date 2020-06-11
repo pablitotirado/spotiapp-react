@@ -13,8 +13,8 @@ import InputSearch from 'components/input-search'
 import './styles.scss'
 
 const Nav = ({ children }) => {
-	const token = useSelector(state => state.reducerAuth.token)
-	const { images, display_name } = useSelector(state => state.reducerUser.user)
+	const token = useSelector(state => state.auth.token)
+	const { images, display_name } = useSelector(state => state.user.user)
 	const dispatch = useDispatch()
 
 	const logout = () => dispatch(ClearStorageAction())

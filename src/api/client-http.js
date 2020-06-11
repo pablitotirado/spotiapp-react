@@ -1,74 +1,62 @@
 export default class Http {
 	query = 'https://api.spotify.com/v1/'
 	queryReleases = 'browse/new-releases?limit=5'
+	queryBrowCategories = 'browse/categories'
 	queryRecentlyPlayed = 'me/player/recently-played'
-	queryUser = 'me'
 	queryGenreSeeds = 'recommendations/available-genre-seeds'
 	token = localStorage.getItem('access_token')
-	tokenType = localStorage.getItem('token_type')
-	headersGet = {
-		'Authorization': `${this.tokenType} ${this.token}`
+	requestOptions = {
+		headers: {
+			'Authorization': `Bearer ${this.token}`
+		}
 	}
 
 	async newReleases() {
-		const requestOptions = {
-			headers: this.headersGet
-		}
 		const request = await fetch(
 			`${this.query}${this.queryReleases}`,
-			requestOptions
+			this.requestOptions
 		)
 		const response = await request.json()
 		return response
 	}
 
 	async GenreSeeds() {
-		const requestOptions = {
-			headers: this.headersGet
-		}
 		const request = await fetch(
 			`${this.query}${this.queryGenreSeeds}`,
-			requestOptions
+			this.requestOptions
 		)
 		const response = await request.json()
 		return response
 	}
 
 	async getProfile() {
-		const requestOptions = {
-			headers: this.headersGet
-		}
-		const request = await fetch(
-			`${this.query}${this.queryUser}`,
-			requestOptions
-		)
+		const request = await fetch(`${this.query}me`, this.requestOptions)
 		const response = await request.json()
 		return response
 	}
 
 	async getRecentlyPlayed() {
-		const requestOptions = {
-			headers: this.headersGet
-		}
 		const request = await fetch(
 			'https://api.spotify.com/v1/me/player/recently-played?limit=5',
-			requestOptions
+			this.requestOptions
 		)
 		const response = await request.json()
-
 		return response
 	}
 
 	async getSearch(search, type = 'artist') {
-		const requestOptions = {
-			headers: this.headersGet
-		}
 		const request = await fetch(
 			`https://api.spotify.com/v1/search?q=${search}&type=${type}${
 				type === 'track' ? '&limit=30' : ''
 			}`,
-			requestOptions
+			this.requestOptions
 		)
+		const response = await request.json()
+		return response
+	}
+
+	async getBrowCategories() {
+		const request = await fetch(`${this.query}${this.queryBrowCategories}`)
 		const response = await request.json()
 		return response
 	}

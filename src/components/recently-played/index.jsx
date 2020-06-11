@@ -9,7 +9,7 @@ import './styles.scss'
 const RecentlyPlayed = () => {
 	const dispatch = useDispatch()
 	const { recently, loading, error } = useSelector(
-		state => state.reducerRecently
+		state => state.recently
 	)
 
 	useEffect(() => {

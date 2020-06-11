@@ -9,7 +9,7 @@ import './styles.scss'
 import Loading from 'components/loading'
 
 const Login = ({ history }) => {
-	const { token, loading } = useSelector(state => state.reducerAuth)
+	const { token, loading } = useSelector(state => state.auth)
 	const dispatch = useDispatch()
 
 	useLayoutEffect(() => {
@@ -28,10 +28,9 @@ const Login = ({ history }) => {
 					<h1 className='container-login__title'>
 						<Logo src={Spotify} /> Accesar a SpotifyClon
 					</h1>
-
 					<a
 						className='container-login__outside'
-						href='https://accounts.spotify.com/authorize?client_id=366e20586971408a82848c8ac6d8f2a3&redirect_uri=https://spoti-clon-react.now.sh/login&scope=user-read-private%20user-read-recently-played&response_type=token'
+						href='https://accounts.spotify.com/authorize?client_id=366e20586971408a82848c8ac6d8f2a3&redirect_uri=https://spoti-clon-react.now.sh&scope=user-read-private%20user-read-recently-played&response_type=token'
 					>
 						Autenticar
 					</a>

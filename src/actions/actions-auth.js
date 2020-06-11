@@ -13,18 +13,14 @@ const FetchTokenSuccess = token => {
 	}
 }
 
-export const FetchTokenAction = token => {
-	return dispatch => {
-		dispatch(FetchTokenSuccess(token))
-	}
-}
+export const FetchTokenAction = token => dispatch =>
+	dispatch(FetchTokenSuccess(token))
 
-const clearStorage = () => {
-	return {
-		type: CLEAR_STORAGE,
-		payload: {
-			token: false
-		}
+const clearStorage = () => ({
+	type: CLEAR_STORAGE,
+	payload: {
+		token: false
 	}
-}
+})
+
 export const ClearStorageAction = () => dispatch => dispatch(clearStorage())
