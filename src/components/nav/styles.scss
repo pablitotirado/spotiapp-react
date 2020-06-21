@@ -2,9 +2,11 @@
 .nav {
 	min-height: 100vh;
 	display: flex;
+	width: 100%;
 
 	&__left {
 		width: 15.2rem;
+		flex-basis: 15%;
 		background: #040404;
 		padding: 1rem 0.6rem;
 	}
@@ -27,6 +29,7 @@
 	}
 
 	&__center {
+		flex-basis: 85%;
 		width: 100%;
 		padding: 1rem 2rem 5.5rem 2rem;
 		background: #121212;

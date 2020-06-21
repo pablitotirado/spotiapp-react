@@ -4,7 +4,7 @@ import './styles.scss'
 
 const ArtistCard = ({ image, name, loadUri, uri, foll, type, large }) => {
 	return (
-		<div className='artist-card-container'>
+		<div className='artist-card-container animated fade-in'>
 			<div className='artist-card' onClick={() => loadUri(uri)}>
 				<img
 					src={image ? image : NotImage}

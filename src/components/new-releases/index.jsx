@@ -21,14 +21,12 @@ const NewReleases = () => {
 	}, [dispatch])
 
 	const loadUri = uri => dispatch(getTrackAndAlbums(uri))
-
+	console.log(data && data)
 	return (
 		<>
-			{loading ? (
-				<Loading loading={loading} />
-			) : (
-				<div className='new-releases'>
-					<h2 className='new-releases__heading'>nuevos lanzamientos</h2>
+			<div className='new-releases'>
+				<h2 className='new-releases__heading'>nuevos lanzamientos</h2>
+				{data && (
 					<div className='new-releases__grid'>
 						{data.items &&
 							data.items.map(
@@ -44,13 +42,13 @@ const NewReleases = () => {
 								)
 							)}
 					</div>
-					<Pagination
-						previous={data.previous}
-						next={data.next}
-						paginationAction={PaginationAction}
-					/>
-				</div>
-			)}
+				)}
+				<Pagination
+					previous={data && data.previous}
+					next={data && data.next}
+					paginationAction={PaginationAction}
+				/>
+			</div>
 		</>
 	)
 }
