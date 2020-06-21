@@ -1,12 +1,18 @@
 import React, { useLayoutEffect } from 'react'
-import { FetchAlbumsActions } from 'actions/actions-browser.js'
+import {
+	FetchAlbumsActions,
+	PaginationAction
+} from 'actions/actions-browser.js'
 import { getTrackAndAlbums } from 'actions/action-player'
 import { useSelector, useDispatch } from 'react-redux'
+import Loading from 'components/loading'
 import CardArtist from 'components/card-artist'
+
+import Pagination from 'components/pagination'
 import './styles.scss'
 
-const NewReleases = ({ className }) => {
-	const { albums, loading, error } = useSelector(state => state.browser)
+const NewReleases = () => {
+	const { data, loading } = useSelector(state => state.browser)
 	const dispatch = useDispatch()
 
 	useLayoutEffect(() => {
@@ -18,23 +24,31 @@ const NewReleases = ({ className }) => {
 
 	return (
 		<>
-			{!loading && !error && (
-				<div className='animated'>
+			{loading ? (
+				<Loading loading={loading} />
+			) : (
+				<div className='new-releases'>
 					<h2 className='new-releases__heading'>nuevos lanzamientos</h2>
 					<div className='new-releases__grid'>
-						{albums.map(
-							({ id, uri, images: [, { url }], name, album_type }) => (
-								<CardArtist
-									key={id}
-									image={url}
-									name={name}
-									loadUri={loadUri}
-									uri={uri}
-									type={album_type}
-								/>
-							)
-						)}
+						{data.items &&
+							data.items.map(
+								({ id, uri, images: [, { url }], name, album_type }) => (
+									<CardArtist
+										key={id}
+										image={url}
+										name={name}
+										loadUri={loadUri}
+										uri={uri}
+										type={album_type}
+									/>
+								)
+							)}
 					</div>
+					<Pagination
+						previous={data.previous}
+						next={data.next}
+						paginationAction={PaginationAction}
+					/>
 				</div>
 			)}
 		</>

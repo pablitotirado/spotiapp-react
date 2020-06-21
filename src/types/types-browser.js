@@ -1,3 +1,8 @@
 export const FETCH_ALBUMS_INIT = 'FETCH_ALBUMS_INIT'
 export const FETCH_ALBUMS_SUCCESS = 'FETCH_ALBUMS_SUCCESS'
 export const FETCH_ALBUMS_ERROR = 'FETCH_ALBUMS_ERROR'
+
+export const NEXT_PAG = 'NEXT_PAG'
+export const PREV_PAG = 'PREV_PAG'
+export const INIT_PAG = 'INIT_PAG'
+export const CHANGE_PAG_ERROR = 'CHANGE_PAG_ERROR'

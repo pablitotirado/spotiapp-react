@@ -60,4 +60,10 @@ export default class Http {
 		const response = await request.json()
 		return response
 	}
+
+	async pagination(url) {
+		const request = await fetch(url, this.requestOptions)
+		const response = await request.json()
+		return response
+	}
 }

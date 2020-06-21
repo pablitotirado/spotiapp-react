@@ -7,6 +7,7 @@ import CardArtist from 'components/card-artist'
 import './styles.scss'
 
 const RecentlyPlayed = () => {
+
 	const dispatch = useDispatch()
 	const { recently, loading, error } = useSelector(
 		state => state.recently
@@ -18,6 +19,7 @@ const RecentlyPlayed = () => {
 	}, [dispatch])
 
 	const loadUri = uri => dispatch(getTrackAndAlbums(uri))
+
 	return (
 		<>
 			{!loading && !error && recently && (
