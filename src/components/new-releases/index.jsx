@@ -25,7 +25,13 @@ const NewReleases = () => {
 	return (
 		<>
 			<div className='new-releases'>
-				<h2 className='new-releases__heading'>nuevos lanzamientos</h2>
+				<div className='new-releases__heading'>
+					<h2 className='new-releases__heading-title'>nuevos lanzamientos</h2>
+					<div className='new-releases__heading-countries'>hola</div>
+					<div className='new-releases__heading-countries'>hola</div>
+					<div className='new-releases__heading-countries'>hola</div>
+					<div className='new-releases__heading-countries'>hola</div>
+				</div>
 				{data && (
 					<div className='new-releases__grid'>
 						{data.items &&

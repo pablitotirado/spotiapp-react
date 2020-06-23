@@ -1,9 +1,10 @@
 .pag {
-	grid-column: 1 / 6;
+	position: absolute;
+	bottom: 0;
 	width: 100%;
-	margin-top: 0.5rem;
 	display: flex;
 	justify-content: flex-end;
+	align-items: center;
 
 	&__prev {
 		margin-right: 0.5rem;

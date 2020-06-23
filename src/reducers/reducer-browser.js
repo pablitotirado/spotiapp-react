@@ -2,10 +2,10 @@ import {
 	FETCH_ALBUMS_INIT,
 	FETCH_ALBUMS_SUCCESS,
 	FETCH_ALBUMS_ERROR,
-	NEXT_PAG,
-	PREV_PAG,
-	INIT_PAG,
-	CHANGE_PAG_ERROR
+	NEXT_PAG_NEW_RELEASES,
+	PREV_PAG_NEW_RELEASES,
+	INIT_PAG_NEW_RELEASES,
+	CHANGE_PAG_NEW_RELEASES_ERROR
 } from 'types/types-browser'
 
 const initialState = {
@@ -33,19 +33,19 @@ export default (state = initialState, action) => {
 				loading: action.payload.loading,
 				error: action.payload.error
 			}
-		case INIT_PAG:
+		case INIT_PAG_NEW_RELEASES:
 			return {
 				loading: action.payload.loading,
 				error: action.payload.error
 			}
-		case NEXT_PAG:
-		case PREV_PAG:
+		case NEXT_PAG_NEW_RELEASES:
+		case PREV_PAG_NEW_RELEASES:
 			return {
 				loading: action.payload.loading,
 				error: action.payload.error,
 				data: action.payload.data
 			}
-		case CHANGE_PAG_ERROR:
+		case CHANGE_PAG_NEW_RELEASES_ERROR:
 			return {
 				loading: action.payload.loading,
 				error: action.payload.error

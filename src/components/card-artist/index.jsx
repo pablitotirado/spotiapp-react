@@ -2,9 +2,9 @@ import React from 'react'
 import NotImage from 'assets/img/notimage.png'
 import './styles.scss'
 
-const ArtistCard = ({ image, name, loadUri, uri, foll, type, large }) => {
+const CardArtist = ({ image, name, loadUri, uri, foll, type, large }) => {
 	return (
-		<div className='artist-card-container animated fade-in'>
+		<div className='wrapper-card'>
 			<div className='artist-card' onClick={() => loadUri(uri)}>
 				<img
 					src={image ? image : NotImage}
@@ -25,4 +25,4 @@ const ArtistCard = ({ image, name, loadUri, uri, foll, type, large }) => {
 	)
 }
 
-export default ArtistCard
+export default CardArtist

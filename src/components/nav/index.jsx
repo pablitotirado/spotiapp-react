@@ -77,7 +77,7 @@ const Nav = ({ children }) => {
 							</button>
 						</div>
 					</div>
-					{children}
+					<div className='children'>{children}</div>
 				</div>
 			</div>
 			{!token && <Redirect to='/login' />}

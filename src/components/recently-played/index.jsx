@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { FetchRecently } from 'actions/action-recently-played'
+import { FetchRecently, PaginationAction } from 'actions/action-recently-played'
 import { getTrackAndAlbums } from 'actions/action-player.js'
 import CardArtist from 'components/card-artist'
+import Pagination from 'components/pagination'
+
 import './styles.scss'
 
 const RecentlyPlayed = () => {
@@ -17,44 +19,48 @@ const RecentlyPlayed = () => {
 
 	const loadUri = uri => dispatch(getTrackAndAlbums(uri))
 
+	console.log(recently && recently.next)
 	return (
 		<>
-			{!loading && !error && recently && (
-				<>
-					<div className='recently'>
-						<h2 className='recently__heading'>escuchado recientemente</h2>
-						<div className='recently__grid animated'>
-							{recently.map(
-								(
-									{
-										track: {
-											id,
-											album: {
-												name,
-												type,
-												uri,
-												images: [{ url }]
-											}
+			<div className='recently'>
+				<h2 className='recently__heading'>escuchado recientemente</h2>
+				{!loading && recently.items && (
+					<div className='recently__grid'>
+						{recently.items.map(
+							(
+								{
+									track: {
+										id,
+										album: {
+											name,
+											type,
+											uri,
+											images: [{ url }]
 										}
-									},
-									i
-								) => {
-									return (
-										<CardArtist
-											key={`${id}_${i}`}
-											name={name}
-											type={type}
-											uri={uri}
-											loadUri={loadUri}
-											image={url}
-										/>
-									)
-								}
-							)}
-						</div>
+									}
+								},
+								i
+							) => {
+								return (
+									<CardArtist
+										key={`${id}_${i}`}
+										name={name}
+										type={type}
+										uri={uri}
+										loadUri={loadUri}
+										image={url}
+									/>
+								)
+							}
+						)}
 					</div>
-				</>
-			)}
+				)}
+				<Pagination
+					next={recently && recently.next && recently.next}
+					previous={recently && recently.previous && recently.previous}
+					paginationAction={PaginationAction}
+				/>
+			</div>
 		</>
 	)
 }

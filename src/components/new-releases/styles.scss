@@ -1,19 +1,37 @@
 @import 'assets/utils';
 .new-releases {
-	grid-row: 1 / 2;
 	width: 100%;
+	height: min-content;
+	display: flex;
+	flex-direction: column;
+	height: 25rem;
+	position: relative;
 	&__heading {
-		text-align: start;
-		text-transform: capitalize;
-		color: white;
-		font-size: rem-calc(24);
-		font-weight: 600;
-		line-height: 1rem;
+		height: 15%;
+		border: 1px solid white;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		&-title {
+			text-transform: capitalize;
+			color: white;
+			font-size: rem-calc(24);
+			font-weight: 600;
+			line-height: 1rem;
+		}
+
+		&-countries {
+			height: min-content;
+			padding: 0.5rem 1rem;
+			border-radius: 20px;
+			color: white;
+			background-color: $green-spoti-primary;
+		}
 	}
 	&__grid {
 		width: 100%;
-		display: grid;
-		grid-template-columns: repeat(5, 19%);
-		column-gap: 0.8rem;
+		display: flex;
+		flex-wrap: wrap;
+		height: 18rem;
 	}
 }

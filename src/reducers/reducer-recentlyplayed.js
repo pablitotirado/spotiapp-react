@@ -1,7 +1,11 @@
 import {
 	FETCH_RECENTLY_PLAYER_INIT,
 	FETCH_RECENTLY_PLAYER_SUCCESS,
-	FETCH_RECENTLY_PLAYER_ERROR
+	FETCH_RECENTLY_PLAYER_ERROR,
+	NEXT_PAG_RECENTLY_PLAYED,
+	PREV_PAG_RECENTLY_PLAYED,
+	INIT_PAG_RECENTLY_PLAYED,
+	CHANGE_PAG_RECENTLY_PLAYED_ERROR
 } from 'types/types-recentlyplayed'
 
 const initialState = {
@@ -29,6 +33,23 @@ export default (state = initialState, action) => {
 				loading: action.payload.loading,
 				error: action.payload.error,
 				errorMessage: action.payload.errorMessage
+			}
+		case INIT_PAG_RECENTLY_PLAYED:
+			return {
+				loading: action.payload.loading,
+				error: action.payload.error
+			}
+		case NEXT_PAG_RECENTLY_PLAYED:
+		case PREV_PAG_RECENTLY_PLAYED:
+			return {
+				loading: action.payload.loading,
+				error: action.payload.error,
+				recently: action.payload.data
+			}
+		case CHANGE_PAG_RECENTLY_PLAYED_ERROR:
+			return {
+				loading: action.payload.loading,
+				error: action.payload.error
 			}
 		default:
 			return state

@@ -1,7 +1,11 @@
 @import 'assets/utils';
 .recently {
-	grid-row: 2 / 3;
-	height: 380px;
+	width: 100%;
+	height: min-content;
+	display: flex;
+	flex-direction: column;
+	height: 25rem;
+	position: relative;
 	&__heading {
 		text-align: start;
 		text-transform: capitalize;
@@ -11,8 +15,9 @@
 		line-height: 1rem;
 	}
 	&__grid {
-		display: grid;
-		grid-template-columns: repeat(5, 19%);
-		column-gap: 0.8rem;
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		height: 18rem;
 	}
 }
