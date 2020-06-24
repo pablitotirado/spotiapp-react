@@ -12,7 +12,7 @@ import Http from 'api/client-http'
 
 const releases = new Http()
 
-export const FetchAlbumsActions = () => async dispatch => {
+export const FetchAlbumsActions = countrie => async dispatch => {
 	dispatch({
 		type: FETCH_ALBUMS_INIT,
 		payload: {
@@ -21,7 +21,7 @@ export const FetchAlbumsActions = () => async dispatch => {
 		}
 	})
 	try {
-		const response = await releases.newReleases()
+		const response = await releases.newReleases(countrie)
 		dispatch({
 			type: FETCH_ALBUMS_SUCCESS,
 			payload: {

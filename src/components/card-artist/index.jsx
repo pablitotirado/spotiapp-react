@@ -13,7 +13,7 @@ const CardArtist = ({ image, name, loadUri, uri, foll, type, large }) => {
 						large && 'artist-card__image--large'
 					}`}
 				/>
-				<div>
+				<div className="artist-card__name-container">
 					<p className='artist-card__name'>{name}</p>
 					{!foll && <p className='artist-card__type'>{type}</p>}
 				</div>

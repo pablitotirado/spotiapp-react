@@ -17,7 +17,7 @@ export const FetchGenres = () => async dispatch => {
 		}
 	})
 	try {
-		const response = await genre.GenreSeeds()
+		const response = await genre.getGenreSeeds()
 		dispatch({
 			type: FETCH_GENRE_SEEDS_SUCCESS,
 			payload: {

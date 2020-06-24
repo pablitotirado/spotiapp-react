@@ -4,7 +4,11 @@ import {
 	SEARCH_ARTIST_ERROR,
 	SEARCH_TRACK_INIT,
 	SEARCH_TRACK_SUCESS,
-	SEARCH_TRACK_ERROR
+	SEARCH_TRACK_ERROR,
+	NEXT_PAG_ARTIST,
+	PREV_PAG_ARTIST,
+	INIT_PAG_ARTIST,
+	CHANGE_PAG_ARTIST_ERROR
 } from 'types/types-search.js'
 import { CLEAR_STORAGE } from 'types/types-auth.js'
 import Http from 'api/client-http'
@@ -44,6 +48,59 @@ export const FetchSearchArtist = params => async dispatch => {
 				token: false
 			}
 		})
+	}
+}
+
+export const PaginationActionArtist = (url, type) => async dispatch => {
+	dispatch({
+		type: INIT_PAG_ARTIST,
+		payload: {
+			loading: true,
+			error: false
+		}
+	})
+
+	if (type === 'prev') {
+		try {
+			const response = await search.pagination(url)
+			dispatch({
+				type: PREV_PAG_ARTIST,
+				payload: {
+					data: response.albums,
+					loading: false,
+					error: false
+				}
+			})
+		} catch (error) {
+			dispatch({
+				type: CHANGE_PAG_ARTIST_ERROR,
+				payload: {
+					loading: false,
+					error: true
+				}
+			})
+		}
+	}
+	if (type === 'next') {
+		try {
+			const response = await search.pagination(url)
+			dispatch({
+				type: NEXT_PAG_ARTIST,
+				payload: {
+					data: response.albums,
+					loading: false,
+					error: false
+				}
+			})
+		} catch (error) {
+			dispatch({
+				type: CHANGE_PAG_ARTIST_ERROR,
+				payload: {
+					loading: false,
+					error: true
+				}
+			})
+		}
 	}
 }
 

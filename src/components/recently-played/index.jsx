@@ -18,8 +18,6 @@ const RecentlyPlayed = () => {
 	}, [dispatch])
 
 	const loadUri = uri => dispatch(getTrackAndAlbums(uri))
-
-	console.log(recently && recently.next)
 	return (
 		<>
 			<div className='recently'>
@@ -56,8 +54,7 @@ const RecentlyPlayed = () => {
 					</div>
 				)}
 				<Pagination
-					next={recently && recently.next && recently.next}
-					previous={recently && recently.previous && recently.previous}
+					next={recently && recently.next}
 					paginationAction={PaginationAction}
 				/>
 			</div>

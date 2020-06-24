@@ -14,7 +14,6 @@ const Pagination = ({ previous, next, paginationAction }) => {
 					<span className='pag__prev-icon'>&#x25C0;</span>
 				</button>
 			)}
-
 			{next && (
 				<button
 					className='pag__next'

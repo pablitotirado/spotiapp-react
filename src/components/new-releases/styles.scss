@@ -8,7 +8,6 @@
 	position: relative;
 	&__heading {
 		height: 15%;
-		border: 1px solid white;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -19,13 +18,17 @@
 			font-weight: 600;
 			line-height: 1rem;
 		}
-
 		&-countries {
 			height: min-content;
-			padding: 0.5rem 1rem;
+			padding: 0.3rem 1rem;
 			border-radius: 20px;
 			color: white;
-			background-color: $green-spoti-primary;
+			background-color: darken(white, 40%);
+			cursor: pointer;
+
+			&:hover {
+				background-color: darken($green-spoti-primary, 5%);
+			}
 		}
 	}
 	&__grid {

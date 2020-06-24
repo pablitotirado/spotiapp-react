@@ -21,16 +21,33 @@ const NewReleases = () => {
 	}, [dispatch])
 
 	const loadUri = uri => dispatch(getTrackAndAlbums(uri))
-	console.log(data && data)
+
+	const countries = ['AR', 'ES', 'AU', 'PE', 'PY', 'US', 'UY', 'PA']
+	const countriesName = [
+		'Argentina',
+		'España',
+		'Australia',
+		'Perú',
+		'Paraguay',
+		'Usa',
+		'Uruguay',
+		'Paraguay'
+	]
+
 	return (
 		<>
 			<div className='new-releases'>
 				<div className='new-releases__heading'>
 					<h2 className='new-releases__heading-title'>nuevos lanzamientos</h2>
-					<div className='new-releases__heading-countries'>hola</div>
-					<div className='new-releases__heading-countries'>hola</div>
-					<div className='new-releases__heading-countries'>hola</div>
-					<div className='new-releases__heading-countries'>hola</div>
+					{countries.map((countrie, i) => (
+						<div
+							key={i}
+							className='new-releases__heading-countries'
+							onClick={() => dispatch(FetchAlbumsActions(countrie))}
+						>
+							{countriesName[i]}
+						</div>
+					))}
 				</div>
 				{data && (
 					<div className='new-releases__grid'>

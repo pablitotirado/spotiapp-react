@@ -65,8 +65,9 @@
 }
 
 .top-nav {
-	display: block;
-	text-align: end;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	height: 2.2rem;
 	margin-bottom: 1rem;
 	&--user-left {

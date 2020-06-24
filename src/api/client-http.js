@@ -1,6 +1,6 @@
 export default class Http {
 	query = 'https://api.spotify.com/v1/'
-	queryReleases = 'browse/new-releases?limit=5'
+	queryReleases = 'browse/new-releases'
 	queryBrowCategories = 'browse/categories'
 	queryRecentlyPlayed = 'me/player/recently-played'
 	queryGenreSeeds = 'recommendations/available-genre-seeds'
@@ -11,16 +11,17 @@ export default class Http {
 		}
 	}
 
-	async newReleases() {
+	async newReleases(countrie = '') {
+		const validationCountrie = countrie !== '' ? `?country=${countrie}&` : '?'
 		const request = await fetch(
-			`${this.query}${this.queryReleases}`,
+			`${this.query}${this.queryReleases}${validationCountrie}limit=5`,
 			this.requestOptions
 		)
 		const response = await request.json()
 		return response
 	}
 
-	async GenreSeeds() {
+	async getGenreSeeds() {
 		const request = await fetch(
 			`${this.query}${this.queryGenreSeeds}`,
 			this.requestOptions
