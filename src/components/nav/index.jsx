@@ -63,15 +63,17 @@ const Nav = ({ children }) => {
 						}`}
 					>
 						{history.location.pathname !== '/home' && <InputSearch />}
-						<div className='container-wrapper-user'>
-							<div className='user'>
-								<img
-									className='user__image'
-									src={validationImages ? images[0].url : NotImage}
-									alt={display_name}
-								/>
-								<p className='user__name'>{display_name}</p>
-							</div>
+						<div className='container-wrapper-user '>
+							{display_name && (
+								<div className='user animated fade-in'>
+									<img
+										className='user__image'
+										src={validationImages ? images[0].url : NotImage}
+										alt={display_name}
+									/>
+									<p className='user__name'>{display_name}</p>
+								</div>
+							)}
 							<button className='user__logout' onClick={logout}>
 								Salir
 							</button>

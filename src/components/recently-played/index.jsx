@@ -5,12 +5,11 @@ import { FetchRecently, PaginationAction } from 'actions/action-recently-played'
 import { getTrackAndAlbums } from 'actions/action-player.js'
 import CardArtist from 'components/card-artist'
 import Pagination from 'components/pagination'
-
 import './styles.scss'
 
 const RecentlyPlayed = () => {
 	const dispatch = useDispatch()
-	const { recently, loading, error } = useSelector(state => state.recently)
+	const { recently, loading } = useSelector(state => state.recently)
 
 	useEffect(() => {
 		const loadingRecently = () => dispatch(FetchRecently())
@@ -20,7 +19,7 @@ const RecentlyPlayed = () => {
 	const loadUri = uri => dispatch(getTrackAndAlbums(uri))
 	return (
 		<>
-			<div className='recently'>
+			<div className='recently animated fade-in'>
 				<h2 className='recently__heading'>escuchado recientemente</h2>
 				{!loading && recently.items && (
 					<div className='recently__grid'>

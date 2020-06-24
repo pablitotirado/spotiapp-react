@@ -5,14 +5,13 @@ import {
 } from 'actions/actions-browser.js'
 import { getTrackAndAlbums } from 'actions/action-player'
 import { useSelector, useDispatch } from 'react-redux'
-import Loading from 'components/loading'
 import CardArtist from 'components/card-artist'
 
 import Pagination from 'components/pagination'
 import './styles.scss'
 
 const NewReleases = () => {
-	const { data, loading } = useSelector(state => state.browser)
+	const { data } = useSelector(state => state.browser)
 	const dispatch = useDispatch()
 
 	useLayoutEffect(() => {
@@ -36,7 +35,7 @@ const NewReleases = () => {
 
 	return (
 		<>
-			<div className='new-releases'>
+			<div className='new-releases animated fade-in'>
 				<div className='new-releases__heading'>
 					<h2 className='new-releases__heading-title'>nuevos lanzamientos</h2>
 					{countries.map((countrie, i) => (
