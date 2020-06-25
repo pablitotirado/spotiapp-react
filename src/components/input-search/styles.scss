@@ -1,9 +1,11 @@
 @import 'assets/utils';
 .input-search {
+	flex-basis: 80%;
 	position: relative;
+
 	&__input {
 		height: 2rem;
-		width: rem-calc(364);
+		width: 100%;
 		padding: 0 2.5rem;
 		border: none;
 		border-radius: rem-calc(20);
@@ -17,7 +19,27 @@
 	}
 }
 
+.input-search--desktop {
+	display: none;
+	position: relative;
+}
+
+@media (min-width: 768px) {
+	.input-search--desktop {
+		flex-basis: 80%;
+		display: initial;
+	}
+}
+
+@media (min-width: 768px) {
+	.wrapper-input {
+		display: none;
+	}
+}
+
 .error-search {
+	width: 100%;
+	position: absolute;
 	color: white;
 	margin-top: 0.5rem;
 	padding: 0.5rem;

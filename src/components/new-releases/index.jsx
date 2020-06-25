@@ -48,6 +48,11 @@ const NewReleases = () => {
 						</div>
 					))}
 				</div>
+				<Pagination
+					previous={data && data.previous}
+					next={data && data.next}
+					paginationAction={PaginationAction}
+				/>
 				{data && (
 					<div className='new-releases__grid'>
 						{data.items &&
@@ -65,11 +70,6 @@ const NewReleases = () => {
 							)}
 					</div>
 				)}
-				<Pagination
-					previous={data && data.previous}
-					next={data && data.next}
-					paginationAction={PaginationAction}
-				/>
 			</div>
 		</>
 	)

@@ -21,6 +21,10 @@ const RecentlyPlayed = () => {
 		<>
 			<div className='recently animated fade-in'>
 				<h2 className='recently__heading'>escuchado recientemente</h2>
+				<Pagination
+					next={recently && recently.next}
+					paginationAction={PaginationAction}
+				/>
 				{!loading && recently.items && (
 					<div className='recently__grid'>
 						{recently.items.map(
@@ -52,10 +56,6 @@ const RecentlyPlayed = () => {
 						)}
 					</div>
 				)}
-				<Pagination
-					next={recently && recently.next}
-					paginationAction={PaginationAction}
-				/>
 			</div>
 		</>
 	)

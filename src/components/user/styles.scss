@@ -1,0 +1,70 @@
+@import 'assets/utils';
+.user {
+	margin: auto 0 auto auto;
+	flex-basis: 20%;
+	display: flex;
+	justify-content: space-between;
+
+	&__left {
+
+		display: flex;
+		border-radius: 20px;
+		padding: 0 .5rem 0 0;
+	}
+
+	@media (min-width: 640px) {
+		&__left {
+			margin-right: min(1rem);
+		}
+	}
+	&__right {
+		height: 2rem;
+		width: 4rem;
+		border-radius: 20px;
+		border: none;
+		background: $green-spoti-primary;
+		color: white;
+
+		&:hover {
+			background: lighten($green-spoti-primary, 10%);
+			cursor: pointer;
+		}
+	}
+
+	&__image {
+		border-radius: 50%;
+		width: 2.2rem;
+		height: 100%;
+		margin: 0 0.5rem 0 0;
+		display: none;
+	}
+	@media (min-width: 640px) {
+		&__image {
+			display: initial;
+		}
+	}
+
+	&__name {
+		display: none;
+		margin: auto;
+		color: white;
+	}
+	@media (min-width: 560px) {
+		&__name {
+			display: initial;
+		}
+	}
+}
+
+@media (min-width: 560px) {
+	.user {
+		flex-basis: 30%;
+	}
+}
+@media (min-width: 640px) {
+	.user {
+		flex-basis: 35%;
+		justify-content: flex-end;
+		align-items: center;
+	}
+}

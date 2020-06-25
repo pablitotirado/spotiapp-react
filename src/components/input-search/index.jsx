@@ -5,7 +5,7 @@ import { FetchSearchArtist, FetchSearchTracks } from 'actions/action-search.js'
 import Glass from 'assets/img/buscar.svg'
 import './styles.scss'
 
-const InputSearch = () => {
+const InputSearch = ({ desktop }) => {
 	const [inputSearch, setInputSearch] = useState('')
 	const [formError, setFormError] = useState(false)
 	const history = useHistory()
@@ -30,23 +30,25 @@ const InputSearch = () => {
 
 	return (
 		<>
-			<div className='input-search'>
-				<input
-					type='text'
-					className='input-search__input'
-					placeholder={
-						history.location.pathname === '/tracks'
-							? 'Buscar por canciones'
-							: 'Buscar por artistas'
-					}
-					onKeyUp={handlePress}
-					onChange={handleChange}
-					value={inputSearch}
-				/>
-				<img className='input-search__glass' src={Glass} alt='search' />
-				{formError && (
-					<div className='error-search animated'> Ingrese una busqueda </div>
-				)}
+			<div className={desktop ? 'input-search--desktop' : 'wrapper-input'}>
+				<div className='input-search animated fade-in'>
+					<input
+						type='text'
+						className='input-search__input'
+						placeholder={
+							history.location.pathname === '/tracks'
+								? 'Buscar por canciones'
+								: 'Buscar por artistas'
+						}
+						onKeyUp={handlePress}
+						onChange={handleChange}
+						value={inputSearch}
+					/>
+					<img className='input-search__glass' src={Glass} alt='search' />
+					{formError && (
+						<div className='error-search animated'> Ingrese una busqueda </div>
+					)}
+				</div>
 			</div>
 		</>
 	)

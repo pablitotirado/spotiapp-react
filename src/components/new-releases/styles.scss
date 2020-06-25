@@ -4,14 +4,15 @@
 	height: min-content;
 	display: flex;
 	flex-direction: column;
-	height: 25rem;
-	position: relative;
+
 	&__heading {
 		height: 15%;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		flex-wrap: wrap;
 		&-title {
+			width: 100%;
 			text-transform: capitalize;
 			color: white;
 			font-size: rem-calc(24);
@@ -19,8 +20,11 @@
 			line-height: 1rem;
 		}
 		&-countries {
-			height: min-content;
+			flex-basis: auto;
+			flex-grow: 1;
+			margin: 0.2rem;
 			padding: 0.3rem 1rem;
+			margin-right: 0.5rem;
 			border-radius: 20px;
 			color: white;
 			background-color: darken(white, 40%);
@@ -35,6 +39,5 @@
 		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
-		height: 18rem;
 	}
 }

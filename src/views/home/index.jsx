@@ -5,7 +5,10 @@ import './styles.scss'
 const Home = () => {
 	return (
 		<>
-			<div className='home-container animated fade-in'>
+			<div
+				onScrollCapture={e => console.log(e)}
+				className='home-container animated fade-in'
+			>
 				<NewReleases />
 				<RecentlyPlayed />
 			</div>

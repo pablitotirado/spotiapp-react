@@ -9,9 +9,7 @@ const CardArtist = ({ image, name, loadUri, uri, foll, type, large }) => {
 				<img
 					src={image ? image : NotImage}
 					alt={name}
-					className={`artist-card__image ${
-						large && 'artist-card__image--large'
-					}`}
+					className={`artist-card__image `}
 				/>
 				<div className='artist-card__name-container'>
 					<p className='artist-card__name'>{name}</p>

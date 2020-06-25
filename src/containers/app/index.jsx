@@ -2,21 +2,21 @@ import React, { Suspense } from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import appRoutes from './routes'
-import Nav from 'components/nav'
+import NavWrapper from 'components/nav-wrapper'
 import Loading from 'components/loading'
 
 const AppContainer = () => {
 	const { uri, trackExist } = useSelector(state => state.player)
 	return (
 		<>
-			<Nav>
+			<NavWrapper>
 				<Suspense fallback={<Loading loading />}>
 					{appRoutes.map((route, i) => (
 						<Route key={i} {...route} />
 					))}
-					<Redirect to='/home' />
+					<Redirect to='/tracks' />
 				</Suspense>
-			</Nav>
+			</NavWrapper>
 			{trackExist && (
 				<iframe
 					src={`https://open.spotify.com/embed?uri=${uri}`}

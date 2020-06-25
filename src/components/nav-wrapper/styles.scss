@@ -1,0 +1,77 @@
+@import 'assets/utils';
+
+.nav-wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: min-content;
+	height: 100%;
+	width: 100%;
+	&__top-nav-mobile {
+		flex-basis: 10%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		background-color: #121212;
+		padding: 1rem 0.6rem;
+	}
+
+	@media (min-width: 768px) {
+		&__top-nav-mobile {
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+
+	&__center {
+		background: #121212;
+		padding: 1rem 1rem 3rem 1rem;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	@media (min-width: 768px) {
+		&__center {
+			padding: 1rem 0rem 3rem 0rem;
+		}
+	}
+	&__top-nav-desktop {
+		padding: 1rem 0.5rem;
+		flex-basis: 30%;
+		display: none;
+	}
+
+	@media (min-width: 768px) {
+		&__top-nav-desktop {
+			display: initial;
+			flex-basis: 30%;
+			flex-grow: 1;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		&__top-nav-desktop {
+			padding: 1rem 0.5rem;
+			flex-basis: 18%;
+			flex-grow: 1;
+		}
+	}
+	&__children {
+		height: min-content;
+		flex-basis: 100%;
+	}
+
+	@media (min-width: 768px) {
+		&__children {
+			flex-basis: 80%;
+			display: flex;
+			flex-direction: column;
+		}
+	}
+}
+
+.icon {
+	width: 1.5rem;
+	height: 1.5rem;
+	margin-right: 0.5rem;
+}

@@ -18,6 +18,11 @@ const Login = ({ history }) => {
 		history.location.hash && login() && history.push('/home')
 	}, [history, dispatch])
 
+	const location =
+		window.location.hostname === 'localhost'
+			? 'http://localhost:3000/login'
+			: 'https://spoti-clon-react.now.sh/login'
+
 	return (
 		<>
 			<div className='container'>
@@ -30,7 +35,7 @@ const Login = ({ history }) => {
 					</h1>
 					<a
 						className='container-login__outside'
-						href='https://accounts.spotify.com/authorize?client_id=366e20586971408a82848c8ac6d8f2a3&redirect_uri=https://spoti-clon-react.now.sh/login&scope=user-read-private%20user-read-recently-played&response_type=token'
+						href={`https://accounts.spotify.com/authorize?client_id=366e20586971408a82848c8ac6d8f2a3&redirect_uri=${location}&scope=user-read-private%20user-read-recently-played&response_type=token`}
 					>
 						Autenticar
 					</a>

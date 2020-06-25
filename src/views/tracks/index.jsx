@@ -1,13 +1,16 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import SearchTracks from 'components/search-tracks'
+import './styles.scss'
 
 const Tracks = () => {
 	const { searchTracks, loadingTracks } = useSelector(state => state.search)
 
 	return (
 		<>
-			<SearchTracks search={searchTracks.items} loading={loadingTracks} />
+			<div className='tracks-container'>
+				<SearchTracks search={searchTracks.items} loading={loadingTracks} />
+			</div>
 		</>
 	)
 }
