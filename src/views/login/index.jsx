@@ -31,7 +31,7 @@ const Login = ({ history }) => {
 						<Loading loading={loading} />
 					</div>
 					<h1 className='container-login__title'>
-						<Logo src={Spotify} /> Accesar a SpotifyClon
+						<Logo src={Spotify} />SpotifyClon
 					</h1>
 					<a
 						className='container-login__outside'
