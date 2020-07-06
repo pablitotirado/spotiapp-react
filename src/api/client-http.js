@@ -11,60 +11,60 @@ export default class Http {
 		}
 	}
 
+	async httpGet(url, options = {}) {
+		const request = await fetch(url, {
+			...options,
+			headers: {
+				'Authorization': `Bearer ${this.token}`
+			}
+		})
+		const response = await request.json()
+		return response
+	}
+
 	async newReleases(countrie = '') {
 		const validationCountrie = countrie !== '' ? `?country=${countrie}&` : '?'
-		const request = await fetch(
-			`${this.query}${this.queryReleases}${validationCountrie}limit=5`,
-			this.requestOptions
+		const response = await this.httpGet(
+			`${this.query}${this.queryReleases}${validationCountrie}limit=5`
 		)
-		const response = await request.json()
 		return response
 	}
 
 	async getGenreSeeds() {
-		const request = await fetch(
-			`${this.query}${this.queryGenreSeeds}`,
-			this.requestOptions
-		)
-		const response = await request.json()
+		const response = await this.httpGet(`${this.query}${this.queryGenreSeeds}`)
 		return response
 	}
 
 	async getProfile() {
-		const request = await fetch(`${this.query}me`, this.requestOptions)
-		const response = await request.json()
+		const response = await this.httpGet(`${this.query}me`)
 		return response
 	}
 
 	async getRecentlyPlayed() {
-		const request = await fetch(
-			'https://api.spotify.com/v1/me/player/recently-played?limit=5',
-			this.requestOptions
+		const response = await this.httpGet(
+			'https://api.spotify.com/v1/me/player/recently-played?limit=5'
 		)
-		const response = await request.json()
 		return response
 	}
 
 	async getSearch(search, type = 'artist') {
-		const request = await fetch(
+		const response = await this.httpGet(
 			`https://api.spotify.com/v1/search?q=${search}&type=${type}${
 				type === 'track' ? '&limit=30' : ''
-			}`,
-			this.requestOptions
+			}`
 		)
-		const response = await request.json()
 		return response
 	}
 
 	async getBrowCategories() {
-		const request = await fetch(`${this.query}${this.queryBrowCategories}`)
-		const response = await request.json()
+		const response = await this.httpGet(
+			`${this.query}${this.queryBrowCategories}`
+		)
 		return response
 	}
 
 	async pagination(url) {
-		const request = await fetch(url, this.requestOptions)
-		const response = await request.json()
+		const response = await this.httpGet(url)
 		return response
 	}
 }
