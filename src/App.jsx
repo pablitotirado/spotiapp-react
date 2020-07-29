@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react'
 import { Route } from 'react-router-dom'
-import Loading from 'components/loading'
 import { useSelector } from 'react-redux'
+import { Loading } from 'components'
 
 const AppContainer = lazy(() => import('./containers/app'))
 const AppLogin = lazy(() => import('./containers/auth'))

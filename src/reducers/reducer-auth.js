@@ -14,7 +14,6 @@ export default (state = initialState, action) => {
 				loading: action.payload.loading
 			}
 		case CLEAR_STORAGE:
-			localStorage.clear()
 			return {
 				token: action.payload.token
 			}

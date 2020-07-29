@@ -1,23 +1,29 @@
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useRef, useCallback } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import {
+	getTrackAndAlbums,
 	FetchAlbumsActions,
 	PaginationAction
-} from 'actions/actions-browser.js'
-import { getTrackAndAlbums } from 'actions/action-player'
-import { useSelector, useDispatch } from 'react-redux'
-import CardArtist from 'components/card-artist'
+} from 'actions'
+import { CardArtist } from 'components'
+import { Pagination } from 'components'
 
-import Pagination from 'components/pagination'
 import './styles.scss'
 
-const NewReleases = () => {
+//TODO: proptypes and defaultProps
+export const NewReleases = () => {
 	const { data } = useSelector(state => state.browser)
+
+	const refBox = useRef(null)
 	const dispatch = useDispatch()
 
+	const loadingAlbums = useCallback(() => dispatch(FetchAlbumsActions()), [
+		dispatch
+	])
+
 	useLayoutEffect(() => {
-		const loadingAlbums = () => dispatch(FetchAlbumsActions())
 		loadingAlbums()
-	}, [dispatch])
+	}, [loadingAlbums])
 
 	const loadUri = uri => dispatch(getTrackAndAlbums(uri))
 
@@ -35,7 +41,7 @@ const NewReleases = () => {
 
 	return (
 		<>
-			<div className='new-releases animated fade-in'>
+			<div ref={refBox} className='new-releases animated fade-in'>
 				<div className='new-releases__heading'>
 					<h2 className='new-releases__heading-title'>nuevos lanzamientos</h2>
 					{countries.map((countrie, i) => (
@@ -74,5 +80,3 @@ const NewReleases = () => {
 		</>
 	)
 }
-
-export default NewReleases

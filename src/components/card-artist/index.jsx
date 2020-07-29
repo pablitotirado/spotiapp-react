@@ -1,8 +1,18 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import NotImage from 'assets/img/notimage.png'
 import './styles.scss'
 
-const CardArtist = ({ image, name, loadUri, uri, foll, type, large }) => {
+//TODO: proptypes and defaultProps
+export const CardArtist = ({
+	image,
+	name,
+	loadUri,
+	uri,
+	foll,
+	type,
+	large
+}) => {
 	return (
 		<div className='artist-card' onClick={() => loadUri(uri)}>
 			<img
@@ -22,5 +32,3 @@ const CardArtist = ({ image, name, loadUri, uri, foll, type, large }) => {
 		</div>
 	)
 }
-
-export default CardArtist

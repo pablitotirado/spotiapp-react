@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles.scss'
 
-const Logo = props => <img className='icon' {...props} alt='img' />
-
-export default Logo
+//TODO: proptypes and defaultProps
+export const Logo = ({ className = '', ...props }) => (
+	<img className={`icon ${className}`} alt='img' {...props} />
+)

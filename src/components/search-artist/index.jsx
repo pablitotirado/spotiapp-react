@@ -1,12 +1,13 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { getTrackAndAlbums } from 'actions/action-player.js'
-import Loading from 'components/loading'
-import ArtistCard from 'components/card-artist'
+import { getTrackAndAlbums } from 'actions'
+import { Loading } from 'components'
+import { CardArtist } from 'components'
 
 import './styles.scss'
 
-const SearchArtist = ({ search, loading }) => {
+//TODO: proptypes and defaultProps
+export const SearchArtist = ({ search, loading }) => {
 	const dispatch = useDispatch()
 
 	const loadUri = uri => dispatch(getTrackAndAlbums(uri))
@@ -28,7 +29,7 @@ const SearchArtist = ({ search, loading }) => {
 								const validationImages =
 									images !== undefined && images.length > 0
 								return (
-									<ArtistCard
+									<CardArtist
 										key={id}
 										image={validationImages && images[1].url}
 										name={name}
@@ -46,5 +47,3 @@ const SearchArtist = ({ search, loading }) => {
 		</>
 	)
 }
-
-export default SearchArtist

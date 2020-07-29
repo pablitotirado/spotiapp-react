@@ -1,11 +1,12 @@
 import React, { useLayoutEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { FetchUser } from 'actions/action-user'
-import { ClearStorageAction } from 'actions/actions-auth'
+
+import { FetchUser, ClearStorageAction } from 'actions'
 import NotImage from 'assets/img/notimage.png'
 import './styles.scss'
 
-const User = () => {
+//TODO: proptypes and defaultProps
+export const User = () => {
 	const { images, display_name } = useSelector(state => state.user.user)
 	const dispatch = useDispatch()
 	useLayoutEffect(() => {
@@ -32,5 +33,3 @@ const User = () => {
 		</div>
 	)
 }
-
-export default User

@@ -4,11 +4,12 @@ import { useSelector } from 'react-redux'
 //Actions
 import NavigationMobile from './navigation-mobile'
 import NavigationDesktop from './navigation-dektop'
-import InputSearch from 'components/input-search'
+import { InputSearch } from 'components'
+import { User } from 'components'
 import './styles.scss'
 
-import User from 'components/user'
-const NavWrapper = ({ children }) => {
+//TODO: proptypes and defaultProps
+export const NavWrapper = ({ children }) => {
 	const token = useSelector(state => state.auth.token)
 	const history = useHistory()
 
@@ -38,5 +39,3 @@ const NavWrapper = ({ children }) => {
 		</>
 	)
 }
-
-export default NavWrapper

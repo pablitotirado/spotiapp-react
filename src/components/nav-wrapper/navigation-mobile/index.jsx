@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import Logo from 'components/logo'
+import { Logo } from 'components'
 import Spotify from 'assets/img/logotipo.svg'
 import './styles.scss'
 
+//TODO: proptypes and defaultProps
 const NavigationMobile = () => {
 	return (
 		<>

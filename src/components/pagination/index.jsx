@@ -2,7 +2,8 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import './styles.scss'
 
-const Pagination = ({ previous, next, paginationAction }) => {
+//TODO: proptypes and defaultProps
+export const Pagination = ({ previous, next, paginationAction }) => {
 	const dispatch = useDispatch()
 	return (
 		<div className='pag'>
@@ -25,5 +26,3 @@ const Pagination = ({ previous, next, paginationAction }) => {
 		</div>
 	)
 }
-
-export default Pagination

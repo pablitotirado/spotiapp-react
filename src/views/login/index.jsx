@@ -1,22 +1,23 @@
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { FetchTokenAction } from 'actions/actions-auth.js'
-import Logo from 'components/logo'
+import { FetchTokenAction } from 'actions'
+import { Logo } from 'components'
+import { Loading } from 'components'
 import Spotify from 'assets/img/logotipo.svg'
 import './styles.scss'
 
-import Loading from 'components/loading'
-
 const Login = ({ history }) => {
-	const { token, loading } = useSelector(state => state.auth)
+	const { token, loading } = useSelector(({ auth }) => auth)
 	const dispatch = useDispatch()
 
-	useLayoutEffect(() => {
-		const login = () =>
-			dispatch(FetchTokenAction(history.location.hash.slice(14, -34)))
-		history.location.hash && login() && history.push('/home')
+	const login = useCallback(() => {
+		dispatch(FetchTokenAction(history.location.hash.slice(14, -34)))
 	}, [history, dispatch])
+
+	useLayoutEffect(() => {
+		history.location.hash && login() && history.push('/home')
+	}, [history, login])
 
 	const location =
 		window.location.hostname === 'localhost'
@@ -27,11 +28,10 @@ const Login = ({ history }) => {
 		<>
 			<div className='container'>
 				<div className='container-login'>
-					<div>
-						<Loading loading={loading} />
-					</div>
+					<Loading loading={loading} />
 					<h1 className='container-login__title'>
-						<Logo src={Spotify} />SpotifyClon
+						<Logo src={Spotify} />
+						SpotifyClon
 					</h1>
 					<a
 						className='container-login__outside'

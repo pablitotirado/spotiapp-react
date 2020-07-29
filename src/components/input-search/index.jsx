@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { FetchSearchArtist, FetchSearchTracks } from 'actions/action-search.js'
+import { FetchSearchArtist, FetchSearchTracks } from 'actions'
 import Glass from 'assets/img/buscar.svg'
 import './styles.scss'
 
-const InputSearch = ({ desktop }) => {
+//TODO: proptypes and defaultProps
+export const InputSearch = ({ desktop }) => {
 	const [inputSearch, setInputSearch] = useState('')
 	const [formError, setFormError] = useState(false)
 	const history = useHistory()
@@ -53,5 +54,3 @@ const InputSearch = ({ desktop }) => {
 		</>
 	)
 }
-
-export default InputSearch

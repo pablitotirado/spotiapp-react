@@ -1,10 +1,10 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import SearchArtist from 'components/search-artist'
+import { SearchArtist } from 'components'
 import './styles.scss'
 
 const Artist = () => {
-	const { searchArtist, loadingArtist } = useSelector(state => state.search)
+	const { searchArtist, loadingArtist } = useSelector(({ search }) => search)
 	return (
 		<>
 			<div className='artists-container'>

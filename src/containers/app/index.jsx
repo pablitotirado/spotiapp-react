@@ -2,11 +2,11 @@ import React, { Suspense } from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import appRoutes from './routes'
-import NavWrapper from 'components/nav-wrapper'
-import Loading from 'components/loading'
+import { NavWrapper } from 'components'
+import { Loading } from 'components'
 
 const AppContainer = () => {
-	const { uri, trackExist } = useSelector(state => state.player)
+	const { uri, trackExist } = useSelector(({ player }) => player)
 	return (
 		<>
 			<NavWrapper>
@@ -14,7 +14,7 @@ const AppContainer = () => {
 					{appRoutes.map((route, i) => (
 						<Route key={i} {...route} />
 					))}
-					<Redirect to='/tracks' />
+					<Redirect to='/home' />
 				</Suspense>
 			</NavWrapper>
 			{trackExist && (

@@ -16,11 +16,15 @@ const FetchTokenSuccess = token => {
 export const FetchTokenAction = token => dispatch =>
 	dispatch(FetchTokenSuccess(token))
 
-const clearStorage = () => ({
-	type: CLEAR_STORAGE,
-	payload: {
-		token: false
+const clearStorage = () => {
+	localStorage.removeItem('access_token')
+	localStorage.removeItem('token_type')
+	return {
+		type: CLEAR_STORAGE,
+		payload: {
+			token: false
+		}
 	}
-})
+}
 
 export const ClearStorageAction = () => dispatch => dispatch(clearStorage())

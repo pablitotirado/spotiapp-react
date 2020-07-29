@@ -1,13 +1,18 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { FetchRecently, PaginationAction } from 'actions/action-recently-played'
-import { getTrackAndAlbums } from 'actions/action-player.js'
-import CardArtist from 'components/card-artist'
-import Pagination from 'components/pagination'
+import {
+	getTrackAndAlbums,
+	FetchRecently,
+	PaginationActionRecently
+} from 'actions'
+
+import { CardArtist } from 'components'
+import { Pagination } from 'components'
 import './styles.scss'
 
-const RecentlyPlayed = () => {
+//TODO: proptypes and defaultProps
+export const RecentlyPlayed = () => {
 	const dispatch = useDispatch()
 	const { recently, loading } = useSelector(state => state.recently)
 
@@ -23,7 +28,7 @@ const RecentlyPlayed = () => {
 				<h2 className='recently__heading'>escuchado recientemente</h2>
 				<Pagination
 					next={recently && recently.next}
-					paginationAction={PaginationAction}
+					paginationAction={PaginationActionRecently}
 				/>
 				{!loading && recently.items && (
 					<div className='recently__grid'>
@@ -60,5 +65,3 @@ const RecentlyPlayed = () => {
 		</>
 	)
 }
-
-export default RecentlyPlayed

@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import authRoutes from './routes'
-import Loading from 'components/loading'
+import { Loading } from 'components'
 
 const AuthContainer = ({ history }) => (
 	<Suspense fallback={<Loading loading />}>

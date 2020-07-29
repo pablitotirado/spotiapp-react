@@ -49,8 +49,7 @@ export const FetchRecently = () => async dispatch => {
 	}
 }
 
-
-export const PaginationAction = (url, type) => async dispatch => {
+export const PaginationActionRecently = (url, type) => async dispatch => {
 	dispatch({
 		type: INIT_PAG_RECENTLY_PLAYED,
 		payload: {

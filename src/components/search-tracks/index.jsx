@@ -1,10 +1,11 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { getTrackAndAlbums } from 'actions/action-player.js'
-import Loading from 'components/loading'
+import { getTrackAndAlbums } from 'actions'
+import { Loading } from 'components'
 import './styles.scss'
 
-const SearchTracks = ({ search, loading }) => {
+//TODO: proptypes and defaultProps
+export const SearchTracks = ({ search, loading }) => {
 	const dispatch = useDispatch()
 	const loadUri = uri => dispatch(getTrackAndAlbums(uri))
 	return (
@@ -47,5 +48,3 @@ const SearchTracks = ({ search, loading }) => {
 		</>
 	)
 }
-
-export default SearchTracks

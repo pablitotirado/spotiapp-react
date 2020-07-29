@@ -1,9 +1,11 @@
 @import 'assets/utils';
 .recently {
+	margin-top: 3rem;
 	width: 100%;
 	height: min-content;
 	display: flex;
 	flex-direction: column;
+	position: relative;
 	&__heading {
 		text-align: start;
 		text-transform: capitalize;
@@ -11,13 +13,13 @@
 		font-size: rem-calc(24);
 		font-weight: 600;
 		line-height: 1rem;
+		position: absolute;
 	}
 	&__grid {
 		margin-top: 0.5rem;
 		width: 100%;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(200px, auto));
-		// grid-auto-columns: repeat(auto-fill, minmax(200px, 1fr));
 		grid-template-rows: repeat(auto-fill, minmax(200px, auto));
 		column-gap: 0.5rem;
 		row-gap: 1rem;

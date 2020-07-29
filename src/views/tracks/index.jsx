@@ -1,10 +1,10 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import SearchTracks from 'components/search-tracks'
+import { SearchTracks } from 'components'
 import './styles.scss'
 
 const Tracks = () => {
-	const { searchTracks, loadingTracks } = useSelector(state => state.search)
+	const { searchTracks, loadingTracks } = useSelector(({ search }) => search)
 
 	return (
 		<>

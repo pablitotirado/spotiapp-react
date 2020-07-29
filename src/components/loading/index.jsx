@@ -2,7 +2,13 @@ import React from 'react'
 import { ScaleLoader } from 'react-spinners'
 import PropTypes from 'prop-types'
 
-const cssStyles = `
+export const Loading = ({ size, css, color, loading }) => (
+	<ScaleLoader css={css} size={size} color={color} loading={loading} />
+)
+
+Loading.defaultProps = {
+	size: 150,
+	css: `
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -13,9 +19,9 @@ const cssStyles = `
 		right: 0;
 		left: 0;
 		background-color: rgba(0, 0, 0, 0.7);
-`
-const Loading = ({ size = 150, css = cssStyles, color = '#1db954', loading = false }) => {
-	return <ScaleLoader css={css} size={size} color={color} loading={loading} />
+`,
+	color: '#1db954',
+	loading: false
 }
 
 Loading.propTypes = {
@@ -24,4 +30,3 @@ Loading.propTypes = {
 	color: PropTypes.string,
 	loading: PropTypes.bool
 }
-export default Loading
