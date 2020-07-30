@@ -14,7 +14,7 @@ const AppContainer = () => {
 					{appRoutes.map((route, i) => (
 						<Route key={i} {...route} />
 					))}
-					<Redirect to='/tracks' />
+					<Redirect to='/home' />
 				</Suspense>
 			</NavWrapper>
 			{trackExist && (
