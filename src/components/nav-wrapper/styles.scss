@@ -17,7 +17,7 @@
 
 	@media (min-width: 768px) {
 		&__top-nav-mobile {
-			justify-content: space-between;
+			justify-content: flex-end;
 			align-items: center;
 		}
 	}
@@ -59,6 +59,7 @@
 	&__children {
 		height: min-content;
 		flex-basis: 100%;
+		padding: 1rem;
 	}
 
 	@media (min-width: 768px) {

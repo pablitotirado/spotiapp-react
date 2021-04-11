@@ -1,15 +1,14 @@
 @import 'assets/utils';
 .user {
-	margin: auto 0 auto auto;
+	margin: auto 0;
 	flex-basis: 20%;
 	display: flex;
 	justify-content: space-between;
 
 	&__left {
-
 		display: flex;
 		border-radius: 20px;
-		padding: 0 .5rem 0 0;
+		padding: 0 0.5rem 0 0;
 	}
 
 	@media (min-width: 640px) {
@@ -63,7 +62,7 @@
 }
 @media (min-width: 640px) {
 	.user {
-		flex-basis: 35%;
+		flex-basis: 20%;
 		justify-content: flex-end;
 		align-items: center;
 	}

@@ -16,8 +16,8 @@
 	height: 100%;
 
 	&__play {
-		width: 3rem;
-		height: 3rem;
+		width: 2.5rem;
+		height: 2.5rem;
 		background-color: $green-spoti-primary;
 		border-radius: 50%;
 		display: none;
@@ -30,8 +30,8 @@
 		&-icon {
 			font-size: 1.5rem;
 			color: white;
-			margin-right: -0.3rem;
-			margin-top: -0.2rem;
+			margin-top: 0.2rem;
+			margin-left: 0.3rem;
 		}
 	}
 	&:hover {

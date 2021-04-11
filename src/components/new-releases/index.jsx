@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react'
+import React, { useEffect } from 'react'
 import {
 	FetchAlbumsActions,
 	PaginationAction
@@ -14,7 +14,7 @@ const NewReleases = () => {
 	const { data } = useSelector(state => state.browser)
 	const dispatch = useDispatch()
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		const loadingAlbums = () => dispatch(FetchAlbumsActions())
 		loadingAlbums()
 	}, [dispatch])
@@ -49,25 +49,24 @@ const NewReleases = () => {
 					))}
 				</div>
 				<Pagination
-					previous={data && data.previous}
-					next={data && data.next}
+					previous={data?.previous}
+					next={data?.next}
 					paginationAction={PaginationAction}
 				/>
 				{data && (
 					<div className='new-releases__grid'>
-						{data.items &&
-							data.items.map(
-								({ id, uri, images: [, { url }], name, album_type }) => (
-									<CardArtist
-										key={id}
-										image={url}
-										name={name}
-										loadUri={loadUri}
-										uri={uri}
-										type={album_type}
-									/>
-								)
-							)}
+						{data?.items?.map(
+							({ id, uri, images: [, { url }], name, album_type }) => (
+								<CardArtist
+									key={id}
+									image={url}
+									name={name}
+									loadUri={loadUri}
+									uri={uri}
+									type={album_type}
+								/>
+							)
+						)}
 					</div>
 				)}
 			</div>
