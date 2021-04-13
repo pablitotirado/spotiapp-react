@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 const AppContainer = lazy(() => import('./containers/app'))
 const AppLogin = lazy(() => import('./containers/auth'))
 
-export default function App() {
+const App = () => {
   const token = useSelector(state => state.auth.token)
 
   return (
@@ -20,3 +20,5 @@ export default function App() {
     </Suspense>
   )
 }
+
+export default App
